@@ -1,0 +1,15 @@
+C:\unity\TomorrowStudyCamp\RunClass\LearningAgain\LearningAgain\bin\Debug\net8.0\LearningAgain.exe
+C:\unity\TomorrowStudyCamp\RunClass\LearningAgain\LearningAgain\bin\Debug\net8.0\LearningAgain.deps.json
+C:\unity\TomorrowStudyCamp\RunClass\LearningAgain\LearningAgain\bin\Debug\net8.0\LearningAgain.runtimeconfig.json
+C:\unity\TomorrowStudyCamp\RunClass\LearningAgain\LearningAgain\bin\Debug\net8.0\LearningAgain.dll
+C:\unity\TomorrowStudyCamp\RunClass\LearningAgain\LearningAgain\bin\Debug\net8.0\LearningAgain.pdb
+C:\unity\TomorrowStudyCamp\RunClass\LearningAgain\LearningAgain\obj\Debug\net8.0\LearningAgain.GeneratedMSBuildEditorConfig.editorconfig
+C:\unity\TomorrowStudyCamp\RunClass\LearningAgain\LearningAgain\obj\Debug\net8.0\LearningAgain.AssemblyInfoInputs.cache
+C:\unity\TomorrowStudyCamp\RunClass\LearningAgain\LearningAgain\obj\Debug\net8.0\LearningAgain.AssemblyInfo.cs
+C:\unity\TomorrowStudyCamp\RunClass\LearningAgain\LearningAgain\obj\Debug\net8.0\LearningAgain.csproj.CoreCompileInputs.cache
+C:\unity\TomorrowStudyCamp\RunClass\LearningAgain\LearningAgain\obj\Debug\net8.0\LearningAgain.sourcelink.json
+C:\unity\TomorrowStudyCamp\RunClass\LearningAgain\LearningAgain\obj\Debug\net8.0\LearningAgain.dll
+C:\unity\TomorrowStudyCamp\RunClass\LearningAgain\LearningAgain\obj\Debug\net8.0\refint\LearningAgain.dll
+C:\unity\TomorrowStudyCamp\RunClass\LearningAgain\LearningAgain\obj\Debug\net8.0\LearningAgain.pdb
+C:\unity\TomorrowStudyCamp\RunClass\LearningAgain\LearningAgain\obj\Debug\net8.0\LearningAgain.genruntimeconfig.cache
+C:\unity\TomorrowStudyCamp\RunClass\LearningAgain\LearningAgain\obj\Debug\net8.0\ref\LearningAgain.dll
