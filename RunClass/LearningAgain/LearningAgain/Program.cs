@@ -1,4 +1,8 @@
-﻿namespace LearningAgain
+﻿using System.Buffers;
+using System.Linq;
+using System.Net.Http.Headers;
+
+namespace LearningAgain
 {
     internal class Program
     {
@@ -180,10 +184,148 @@
         #endregion
 
         #region 행맨 게임
+        //public static string secretWord = "hangman";
+        //public static short attempts = 6;
+        //public static short successesWord = 0;
+        //public static bool wordGuessed = false;
+
+        //static void Main(string[] args)
+        //{
+        //    char[] secretWordArr = secretWord.ToCharArray();
+        //    char[] guessWordArr = new char[secretWord.Length];
+
+        //    for (int i = 0; i < guessWordArr.Length; i++)
+        //    {
+        //        guessWordArr[i] = '_';
+        //    }
+
+        //    while (!wordGuessed && attempts > 0)
+        //    {
+        //        bool isItRight = false;
+
+        //        Console.Write($"Hp : {attempts}     Choose Word : ");
+        //        char word = char.Parse(Console.ReadLine());
+
+        //        for (int i = 0; i < guessWordArr.Length; i++)
+        //        {
+        //            if (secretWord[i] == word)
+        //            {
+        //                guessWordArr[i] = word;
+
+        //                successesWord++;
+        //                isItRight = true;
+
+        //                if (guessWordArr.Length == successesWord)
+        //                {
+        //                    wordGuessed = true;
+        //                }
+        //            }
+        //        }
+
+        //        printArr(guessWordArr);
+
+        //        if (!isItRight)
+        //        {
+        //            attempts--;
+        //        }
+        //    }
+
+        //    if (wordGuessed)
+        //    {
+        //        Console.WriteLine("GameClear! congratulations!!!!!!");
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine("GameOver.. Try again...");
+        //    }
+        //}
+
+        //public static void printArr(char[] guessWordArr)
+        //{
+        //    for (int i = 0; i < guessWordArr.Length; i++)
+        //    {
+        //        Console.Write($"{guessWordArr[i]} ");
+        //    }
+        //    Console.WriteLine();
+        //}
+        #endregion
+
+        #region 숫자야구게임
+        //static void Main(string[] args)
+        //{
+        //    Random random = new Random();
+        //    int[] targetNumberArr = new int[3];
+        //    bool guessedCorrectly = false;
+        //    int attempts = 0;
+
+        //    for (int i = 0; i < targetNumberArr.Length;)
+        //    {
+        //        int target = random.Next(1, 10);
+        //        if (!targetNumberArr.Contains(target))
+        //        {
+        //            targetNumberArr[i] = target;
+        //            i++;
+        //        }
+        //    }
+        //    Console.WriteLine(string.Join("", targetNumberArr));
+
+        //    while (!guessedCorrectly)
+        //    {
+        //        Console.Write($"Enter your guess ({targetNumberArr.Length} digits) : ");
+        //        string userGuess = Console.ReadLine();
+        //        char[] userGuessArr = userGuess.ToCharArray();
+
+        //        if (userGuessArr.Length > targetNumberArr.Length || userGuessArr.Length < targetNumberArr.Length)
+        //        {
+        //            Console.WriteLine($"Please enter only {targetNumberArr.Length} numbers");
+        //            continue;
+        //        }
+
+        //        int strikes = 0;
+        //        int balls = 0;
+
+        //        for (int i = 0; i < userGuessArr.Length; i++)
+        //        {
+        //            for (int j = 0; j < targetNumberArr.Length; j++)
+        //            {
+        //                if ((int)Char.GetNumericValue(userGuessArr[i]) == targetNumberArr[j])
+        //                {
+        //                    if (i == j)
+        //                    {
+        //                        strikes++;
+        //                    }
+        //                    else
+        //                    {
+        //                        balls++;
+        //                    }
+        //                    break;
+        //                }
+        //            }
+        //        }
+
+        //        Console.WriteLine($"{strikes} Strike(s), {balls} Ball(s)");
+
+        //        attempts++;
+        //        if (strikes == targetNumberArr.Length)
+        //        {
+        //            guessedCorrectly = true;
+        //        }
+        //    }
+
+        //    Console.WriteLine($"Congratulations! You've guessed the number in {attempts} attempts.");
+        //}
+        #endregion
+
         static void Main(string[] args)
         {
-            
+            int x = 10;
+            string y = "10";
+
+            x += int.Parse(y);
+
+            Console.WriteLine(x);
         }
-        #endregion
     }
+
+
 }
