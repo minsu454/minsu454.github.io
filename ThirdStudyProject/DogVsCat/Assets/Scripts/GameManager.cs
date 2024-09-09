@@ -9,12 +9,14 @@ public class GameManager : MonoBehaviour
 
     public GameObject normalCat;
     public GameObject fatCat;
+    public GameObject pirateCat;
+
     public GameObject retryBtn;
 
     public Text levelTxt;
     public RectTransform levelFront;
 
-    private int level = 0;
+    private int level = 4;
     private int score = 0;
 
     private void Awake()
@@ -33,12 +35,6 @@ public class GameManager : MonoBehaviour
         InvokeRepeating(nameof(MakeCat), 0f, 1f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void MakeCat()
     {
         Instantiate(normalCat);
@@ -53,9 +49,14 @@ public class GameManager : MonoBehaviour
             int p = Random.Range(0, 10);
             if (p < 5) Instantiate(normalCat);
         }
-        else if (level == 3)
+        else if (level >= 3)
         {
             Instantiate(fatCat);
+        }
+
+        if (level >= 4)
+        {
+            Instantiate(pirateCat);
         }
     }
 
