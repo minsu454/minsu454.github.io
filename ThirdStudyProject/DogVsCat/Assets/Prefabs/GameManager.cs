@@ -1,0 +1,49 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GameManager : MonoBehaviour
+{
+    public static GameManager Instance;
+
+    public GameObject normalCat;
+    public GameObject retryBtn;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        Application.targetFrameRate = 60;
+        Time.timeScale = 1.0f;
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        InvokeRepeating(nameof(MakeCat), 0f, 1f);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    private void MakeCat()
+    {
+        Instantiate(normalCat);
+    }
+
+    public void GameOver()
+    {
+        retryBtn.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    private void OnDestroy()
+    {
+        Instance = null;
+    }
+}
