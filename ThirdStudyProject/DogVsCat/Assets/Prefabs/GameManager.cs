@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public GameObject normalCat;
+    public GameObject fatCat;
     public GameObject retryBtn;
 
     public Text levelTxt;
@@ -41,6 +42,21 @@ public class GameManager : MonoBehaviour
     private void MakeCat()
     {
         Instantiate(normalCat);
+
+        if (level == 1)
+        {
+            int p = Random.Range(0, 10);
+            if(p < 2) Instantiate(normalCat);
+        }
+        else if (level == 2)
+        {
+            int p = Random.Range(0, 10);
+            if (p < 5) Instantiate(normalCat);
+        }
+        else if (level == 3)
+        {
+            Instantiate(fatCat);
+        }
     }
 
     public void GameOver()

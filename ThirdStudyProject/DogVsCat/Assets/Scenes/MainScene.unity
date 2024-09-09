@@ -1091,6 +1091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   normalCat: {fileID: 2481602302695960924, guid: 12c06f7f1d2474547b1b1cf5b638e114, type: 3}
+  fatCat: {fileID: 7442417849027347092, guid: 4090f2d3c16b14c48a547ac44b26ce9a, type: 3}
   retryBtn: {fileID: 252692422}
   levelTxt: {fileID: 1269512079}
   levelFront: {fileID: 404144925}
