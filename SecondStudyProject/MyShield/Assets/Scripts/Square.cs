@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Square : MonoBehaviour
 {
+    public float deleteKey = -6f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +17,14 @@ public class Square : MonoBehaviour
         float size = Random.Range(0.5f, 1.5f);
 
         transform.localScale = new Vector2(size, size);
+    }
+
+    private void Update()
+    {
+        if (transform.position.y < deleteKey)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D col)
