@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public Text bestScoreTxt;
     public GameObject endPanel;
 
+    public Animator anim;
+
     private string key = "bestScore";
 
     private bool isPlay = true;
@@ -54,7 +56,8 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         isPlay = false;
-        Time.timeScale = 0f;
+        anim.SetBool("isDie", true);
+        Invoke("TimeStop", 0.5f);
         nowScoreTxt.text = time.ToString("N2");
 
         if (PlayerPrefs.HasKey(key))
@@ -77,5 +80,10 @@ public class GameManager : MonoBehaviour
         }
 
         endPanel.SetActive(true);
+    }
+
+    private void TimeStop()
+    {
+        Time.timeScale = 0f;
     }
 }

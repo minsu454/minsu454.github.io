@@ -446,6 +446,7 @@ MonoBehaviour:
   nowScoreTxt: {fileID: 327206180}
   bestScoreTxt: {fileID: 513491368}
   endPanel: {fileID: 943717700}
+  anim: {fileID: 65597434}
 --- !u!4 &269031307
 Transform:
   m_ObjectHideFlags: 0
