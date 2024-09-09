@@ -444,6 +444,7 @@ MonoBehaviour:
   square: {fileID: 2923003611264169780, guid: 1021c95f485c7034faafa4024dfe3f53, type: 3}
   timeTxt: {fileID: 992968975}
   nowScoreTxt: {fileID: 327206180}
+  bestScoreTxt: {fileID: 513491368}
   endPanel: {fileID: 943717700}
 --- !u!4 &269031307
 Transform:
