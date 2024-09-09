@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public Text totalTimeTxt;
 
     private int totalScore = 0;
-    private float totalTime = 5f;
+    private float totalTime = 30f;
 
     private void Awake()
     {
