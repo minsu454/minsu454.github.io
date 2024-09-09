@@ -7,6 +7,7 @@ public class Rtan : MonoBehaviour
     private float direction = 0.05f;
     private SpriteRenderer renderer;
 
+
     // Start is called before the first frame update
     void Start()
     {
