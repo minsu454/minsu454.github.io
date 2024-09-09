@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Board : MonoBehaviour
 {
@@ -9,7 +10,11 @@ public class Board : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < 16; i++)
+        int[] arr = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7 };
+
+        arr = arr.OrderBy(x => Random.Range(0f, 7f)).ToArray();
+
+        for (int i = 0; i < arr.Length; i++)
         {
             GameObject go = Instantiate(card, transform);
 
@@ -17,6 +22,7 @@ public class Board : MonoBehaviour
             float y = i / 4 * 1.4f - 3.0f;
 
             go.transform.position = new Vector2(x, y);
+            go.GetComponent<Card>().Setting(arr[i]);
         }
 
     }
