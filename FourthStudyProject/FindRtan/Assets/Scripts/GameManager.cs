@@ -10,13 +10,19 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    [Header("Card")]
     public Card firstCard;
     public Card secondCard;
 
+    [Header("UI")]
     public GameObject endTxt;
     public GameObject titleUI;
     public GameObject stageChoiceUI;
 
+    [Header("Board")]
+    public Board board;
+
+    [Header("Audio")]
     private AudioSource audioSource;
     public AudioClip clip;
 
@@ -38,6 +44,8 @@ public class GameManager : MonoBehaviour
             Stage nowStage = StageManager.Instance.GetStage();
 
             TimeManager.Instance.SetTime(nowStage.time);
+            board.SetCardCount(nowStage.cardMax);
+            cardCount = nowStage.cardMax;
         }
     }
 

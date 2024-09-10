@@ -12,6 +12,8 @@ public class TimeManager : MonoBehaviour
     public Text timeTxt;
     private float time = 0f;
 
+    public bool isStart = false;
+
     private void Awake()
     {
         if (Instance == null)
@@ -20,6 +22,8 @@ public class TimeManager : MonoBehaviour
 
     void Update()
     {
+        if (!isStart) return;
+
         if (time <= 0)
         {
             time = 0;
