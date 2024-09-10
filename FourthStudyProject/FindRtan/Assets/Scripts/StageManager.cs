@@ -21,7 +21,14 @@ public class StageManager : MonoBehaviour
 
     public void Awake()
     {
-        Stage st1 = new Stage(16, 30);
+        AddStage(16, 30);
+    }
+
+    public void AddStage(int cardMax, float Time)
+    {
+        Stage st1 = new Stage(cardMax, Time);
+
+        stageList.Add(st1);
     }
 
     public Stage GetStage()

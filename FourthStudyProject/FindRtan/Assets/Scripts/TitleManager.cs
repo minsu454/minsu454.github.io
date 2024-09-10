@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using DG.Tweening;
+using UnityEngine.UI;
 
 public class TitleManager : MonoBehaviour
 {
@@ -10,6 +9,7 @@ public class TitleManager : MonoBehaviour
     public GameObject titleUI;
     public GameObject stageChoiceUI;
 
+    public Animator rtan2Anim;
 
     private void Awake()
     {
