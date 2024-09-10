@@ -321,6 +321,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _androidAdUnitId: Rewarded_Android
   _iOSAdUnitId: Rewarded_iOS
+--- !u!1 &111569937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 111569939}
+  - component: {fileID: 111569938}
+  m_Layer: 0
+  m_Name: TimeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &111569938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111569937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8107e28475690b54790330032013fbd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeTxt: {fileID: 523947759}
+--- !u!4 &111569939
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111569937}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.753615, y: -0.20622718, z: -0.09802902}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &240583924
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,7 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6da7605466c54a94fa4bedbd1bcb4253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 2694076866613884428, guid: 1793ffa711e5cb2429b493f2e4d795d7, type: 3}
+  cardPrefab: {fileID: 2694076866613884428, guid: 1793ffa711e5cb2429b493f2e4d795d7, type: 3}
 --- !u!1 &334888211
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,7 +953,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstCard: {fileID: 0}
   secondCard: {fileID: 0}
-  timeTxt: {fileID: 523947759}
   endTxt: {fileID: 78733571}
   clip: {fileID: 8300000, guid: b4391134731453f4e8156020ded5170d, type: 3}
   cardCount: 0
@@ -1103,3 +1147,4 @@ SceneRoots:
   - {fileID: 334888214}
   - {fileID: 17949065}
   - {fileID: 921083748}
+  - {fileID: 111569939}

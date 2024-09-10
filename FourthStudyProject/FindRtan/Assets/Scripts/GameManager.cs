@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
+using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,20 +13,18 @@ public class GameManager : MonoBehaviour
     public Card firstCard;
     public Card secondCard;
 
-    public Text timeTxt;
     public GameObject endTxt;
+    public GameObject titleUI;
+    public GameObject stageChoiceUI;
 
     private AudioSource audioSource;
     public AudioClip clip;
 
     public int cardCount = 0;
 
-    private float time = 0f;
-    private float endTime = 30f;
-
     private void Awake()
     {
-        if (Instance == null)
+        if(Instance == null)
             Instance = this;
     }
 
@@ -31,23 +32,13 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         audioSource = GetComponent<AudioSource>();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (time >= endTime)
+        if (SceneManager.GetActiveScene().name == "MainScene")
         {
-            time = endTime;
+            Stage nowStage = StageManager.Instance.GetStage();
 
-            EndGame();
+            TimeManager.Instance.SetTime(nowStage.time);
         }
-        else
-        {
-            time += Time.deltaTime;
-        }
-
-        timeTxt.text = time.ToString("N2");
     }
 
     public void Matched()
@@ -79,6 +70,12 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         endTxt.SetActive(true);
+    }
+
+    public void StartSceneUI(bool active)
+    {
+        titleUI.SetActive(active);
+        stageChoiceUI.SetActive(!active);
     }
 
     private void OnDestroy()

@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using DG.Tweening;
 
 public class Board : MonoBehaviour
 {
-    public GameObject card;
+    public GameObject cardPrefab;
+
+    private List<GameObject> cardList = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -16,15 +19,27 @@ public class Board : MonoBehaviour
 
         for (int i = 0; i < arr.Length; i++)
         {
-            GameObject go = Instantiate(card, transform);
+            GameObject go = Instantiate(cardPrefab, transform);
+            go.GetComponent<Card>().Setting(arr[i]);
+
+            cardList.Add(go);
+        }
+
+        if (GameManager.Instance == null)
+        {
+            Debug.Log("is null");
+        }
+
+
+        GameManager.Instance.cardCount = arr.Length;
+
+        for (int i = 0; i < cardList.Count; i++)
+        {
 
             float x = i % 4 * 1.4f - 2.1f;
             float y = i / 4 * 1.4f - 3.0f;
 
-            go.transform.position = new Vector2(x, y);
-            go.GetComponent<Card>().Setting(arr[i]);
+            cardList[i].transform.DOMove(new Vector2(x, y), 0.5f);
         }
-
-        GameManager.Instance.cardCount = arr.Length;
     }
 }

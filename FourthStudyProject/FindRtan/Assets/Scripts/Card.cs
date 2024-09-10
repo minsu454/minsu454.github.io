@@ -38,10 +38,10 @@ public class Card : MonoBehaviour
     public void OpenCard()
     {
         if (GameManager.Instance.secondCard != null) return;
+        if (GameManager.Instance.firstCard == this) return;
 
         audioSource.PlayOneShot(clip);
 
-        anim.SetBool("isOpen", true);
         front.SetActive(true);
         back.SetActive(false);
 
@@ -56,9 +56,14 @@ public class Card : MonoBehaviour
         }
     }
 
+    public void StartAnim()
+    {
+        anim.SetBool("isOpen", true);
+    }
+
     public void DestoryCard()
     {
-        Invoke(nameof(DestoryCardInvoke), 1f);
+        Invoke(nameof(DestoryCardInvoke), 0.5f);
     }
 
     public void DestoryCardInvoke()
@@ -69,7 +74,7 @@ public class Card : MonoBehaviour
 
     public void CloseCard()
     {
-        Invoke(nameof(CloseCardInvoke), 1f);
+        Invoke(nameof(CloseCardInvoke), 0.5f);
     }
 
     public void CloseCardInvoke()
