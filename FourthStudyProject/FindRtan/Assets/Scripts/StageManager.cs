@@ -47,6 +47,8 @@ public class StageManager : MonoBehaviour
 
     public Stage GetStage()
     {
+        if (stageLevel == -1)
+            return stageList[0];
         return stageList[stageLevel];
     }
 

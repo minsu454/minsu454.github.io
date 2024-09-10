@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour
 
     [Header("UI")]
     public GameObject endTxt;
-    public GameObject titleUI;
-    public GameObject stageChoiceUI;
+    public GameObject stageUI;
+    public GameObject settingUI;
 
     [Header("Board")]
     public Board board;
@@ -78,12 +78,6 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         endTxt.SetActive(true);
-    }
-
-    public void StartSceneUI(bool active)
-    {
-        titleUI.SetActive(active);
-        stageChoiceUI.SetActive(!active);
     }
 
     private void OnDestroy()

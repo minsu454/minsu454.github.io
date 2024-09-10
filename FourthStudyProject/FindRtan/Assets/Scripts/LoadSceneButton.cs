@@ -17,8 +17,7 @@ public class LoadSceneButton : MonoBehaviour
         LoadScene("MainScene");
     }
 
-
-
+    #region Title
     public void ChangeStartSceneUI(bool showTitle)
     {
         if (showTitle)
@@ -37,4 +36,19 @@ public class LoadSceneButton : MonoBehaviour
         TitleManager.Instance.StartSceneUI(true);
         TitleManager.Instance.rtan2Anim.SetBool("isMove", false);
     }
+    #endregion
+
+    #region InGame
+    public void PauseBtnUI()
+    {
+        Time.timeScale = 0f;
+        GameManager.Instance.settingUI.SetActive(true);
+    }
+
+    public void CloseBtnUI()
+    {
+        GameManager.Instance.settingUI.SetActive(false);
+        Time.timeScale = 1f;
+    }
+    #endregion
 }
