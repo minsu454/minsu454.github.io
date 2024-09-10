@@ -14,7 +14,9 @@ public class GameManager : MonoBehaviour
     public GameObject endTxt;
 
     public int cardCount = 0;
+
     private float time = 0f;
+    private float endTime = 30f;
 
     private void Awake()
     {
@@ -30,7 +32,16 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
+        if (time >= endTime)
+        {
+            time = endTime;
+
+            EndGame();
+        }
+        else
+        {
+            time += Time.deltaTime;
+        }
 
         timeTxt.text = time.ToString("N2");
     }
@@ -45,8 +56,7 @@ public class GameManager : MonoBehaviour
 
             if (cardCount == 0)
             {
-                Time.timeScale = 0f;
-                endTxt.SetActive(true);
+                EndGame();
             }
         }
         else
@@ -57,6 +67,12 @@ public class GameManager : MonoBehaviour
 
         firstCard = null;
         secondCard = null;
+    }
+
+    public void EndGame()
+    {
+        Time.timeScale = 0f;
+        endTxt.SetActive(true);
     }
 
     private void OnDestroy()
