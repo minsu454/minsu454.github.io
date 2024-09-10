@@ -6,7 +6,12 @@ public class Card : MonoBehaviour
 {
     private int idx = 0;
 
-    public SpriteRenderer front;
+    public GameObject front;
+    public GameObject back;
+
+    public Animator anim;
+
+    public SpriteRenderer frontImage;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +27,13 @@ public class Card : MonoBehaviour
     public void Setting(int number)
     {
         idx = number;
-        front.sprite = Resources.Load<Sprite>($"rtan{idx}");
+        frontImage.sprite = Resources.Load<Sprite>($"rtan{idx}");
+    }
+
+    public void OpenCard()
+    {
+        anim.SetBool("isOpen", true);
+        front.SetActive(true);
+        back.SetActive(false);
     }
 }
