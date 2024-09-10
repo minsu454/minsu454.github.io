@@ -11,12 +11,20 @@ public class GameManager : MonoBehaviour
     public Card secondCard;
 
     public Text timeTxt;
+    public GameObject endTxt;
+
+    public int cardCount = 0;
     private float time = 0f;
 
     private void Awake()
     {
         if (Instance == null)
             Instance = this;
+    }
+
+    private void Start()
+    {
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
@@ -33,6 +41,13 @@ public class GameManager : MonoBehaviour
         {
             firstCard.DestoryCard();
             secondCard.DestoryCard();
+            cardCount -= 2;
+
+            if (cardCount == 0)
+            {
+                Time.timeScale = 0f;
+                endTxt.SetActive(true);
+            }
         }
         else
         {
