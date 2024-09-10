@@ -26,12 +26,18 @@ public class LoadSceneButton : MonoBehaviour
         }
         else
         {
-            TitleManager.Instance.StartSceneUI(showTitle);
+            TitleManager.Instance.rtan1Anim.SetBool("isMove", true);
         }
         
     }
 
-    public void RtanMoveUI()
+    public void Rtan1MoveUI()
+    {
+        TitleManager.Instance.StartSceneUI(false);
+        TitleManager.Instance.rtan1Anim.SetBool("isMove", false);
+    }
+
+    public void Rtan2MoveUI()
     {
         TitleManager.Instance.StartSceneUI(true);
         TitleManager.Instance.rtan2Anim.SetBool("isMove", false);

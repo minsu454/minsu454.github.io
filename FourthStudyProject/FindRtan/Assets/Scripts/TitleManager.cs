@@ -9,6 +9,7 @@ public class TitleManager : MonoBehaviour
     public GameObject titleUI;
     public GameObject stageChoiceUI;
 
+    public Animator rtan1Anim;
     public Animator rtan2Anim;
 
     private void Awake()
