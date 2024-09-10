@@ -123,6 +123,53 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &17949063
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 17949065}
+  - component: {fileID: 17949064}
+  m_Layer: 0
+  m_Name: AdManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &17949064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17949063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 744452e10bfb8714da7b79b5aa28e1b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _androidGameId: 5694675
+  _iOSGameId: 5694674
+  _testMode: 1
+--- !u!4 &17949065
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17949063}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 256.25278, y: 639.7596, z: 2.3330636}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &78733571
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,8 +296,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 78733576}
-        m_TargetAssemblyTypeName: RetryButton, Assembly-CSharp
-        m_MethodName: Retry
+        m_TargetAssemblyTypeName: RewardedAdButton, Assembly-CSharp
+        m_MethodName: ShowAd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -269,9 +316,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 78733571}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2640f208e4c439845ace5f65f22a8703, type: 3}
+  m_Script: {fileID: 11500000, guid: 621ff7ea267873a449f29aae20ef2a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _androidAdUnitId: Rewarded_Android
+  _iOSAdUnitId: Rewarded_iOS
 --- !u!1 &240583924
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,3 +1007,4 @@ SceneRoots:
   - {fileID: 1086540908}
   - {fileID: 696210657}
   - {fileID: 334888214}
+  - {fileID: 17949065}
