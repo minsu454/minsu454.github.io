@@ -12,16 +12,7 @@ public class Card : MonoBehaviour
 
     public Animator anim;
 
-    private AudioSource audioSource;
-    public AudioClip clip;
-
     public SpriteRenderer frontImage;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
 
     public void Setting(int number)
     {
@@ -34,7 +25,7 @@ public class Card : MonoBehaviour
         if (GameManager.Instance.secondCard != null) return;
         if (GameManager.Instance.firstCard == this) return;
 
-        audioSource.PlayOneShot(clip);
+        SoundManager.Instance.PlaySFX(SfxType.Flip);
 
         front.SetActive(true);
         back.SetActive(false);

@@ -15,18 +15,14 @@ public class GameManager : MonoBehaviour
     public Card secondCard;
 
     [Header("UI")]
-    public GameObject endTxt;
     public GameObject stageUI;
     public GameObject settingUI;
     public Text stageTxt;
     public GameObject GameOverUI;
+    public GameObject GameClearUI;
 
     [Header("Board")]
     public Board board;
-
-    [Header("Audio")]
-    private AudioSource audioSource;
-    public AudioClip clip;
 
     public int cardCount = 0;
 
@@ -39,11 +35,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1f;
-        audioSource = GetComponent<AudioSource>();
 
         Stage nowStage = StageManager.Instance.GetStage();
-
-        Debug.Log($"{nowStage.level} {nowStage.time} {nowStage.cardMax}");
 
         TimeManager.Instance.SetTime(nowStage.time);
         board.SetCardCount(nowStage.cardMax);
@@ -56,7 +49,7 @@ public class GameManager : MonoBehaviour
     {
         if (firstCard.idx == secondCard.idx)
         {
-            audioSource.PlayOneShot(clip);
+            SoundManager.Instance.PlaySFX(SfxType.Match);
 
             firstCard.DestoryCard();
             secondCard.DestoryCard();
@@ -85,7 +78,7 @@ public class GameManager : MonoBehaviour
     public void GameClear()
     {
         Time.timeScale = 0f;
-        endTxt.SetActive(true);
+        GameClearUI.SetActive(true);
 
         if (StageManager.Instance.IsMyLevelHighest())
         {
