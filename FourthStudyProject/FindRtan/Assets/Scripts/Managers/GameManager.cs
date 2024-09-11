@@ -43,8 +43,6 @@ public class GameManager : MonoBehaviour
 
         Stage nowStage = StageManager.Instance.GetStage();
 
-        Debug.Log($"{nowStage.level} {nowStage.time} {nowStage.cardMax}");
-
         TimeManager.Instance.SetTime(nowStage.time);
         board.SetCardCount(nowStage.cardMax);
         cardCount = nowStage.cardMax;
