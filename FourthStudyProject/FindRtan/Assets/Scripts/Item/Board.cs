@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Linq;
 using DG.Tweening;
 using System.Runtime.CompilerServices;
+using DG.Tweening.Core.Easing;
 
 public class Board : MonoBehaviour
 {
@@ -68,8 +69,8 @@ public class Board : MonoBehaviour
                     y = i / 4 * 1.4f - 4.2f;
                     break;
                 default:
-                    x = 0;
-                    y = 0;
+                    x = i % 4 * 1.4f - 2.1f;
+                    y = i / 4 * 1.4f - 3.0f;
                     break;
             }
             cardList[i].transform.DOMove(new Vector2(x, y), 0.7f).OnComplete(() => { TimeManager.Instance.isStart = true; });
@@ -77,8 +78,48 @@ public class Board : MonoBehaviour
         }
     }
 
+    public void ShuffleCard()
+    {
+        StartCoroutine(CoShuffleCard());
+    }
+
+    IEnumerator CoShuffleCard()
+    {
+        if (GameManager.Instance.firstCard != null)
+        {
+            GameManager.Instance.firstCard.CloseCard(false);
+            GameManager.Instance.firstCard = null;
+        }
+
+        for (int i = 0; i < cardList.Count; i++)
+        {
+            cardList[i].transform.DOMove(new Vector2(2, 4), 0.7f);
+        }
+
+        yield return new WaitForSeconds(0.8f);
+
+        for (int i = 0; i < cardList.Count; i++)
+        {
+            float x;
+            float y;
+
+            x = i % 4 * 1.4f - 2.1f;
+            y = i / 4 * 1.4f - 3.0f;
+
+            cardList[i].transform.DOMove(new Vector2(x, y), 0.7f).OnComplete(() => { TimeManager.Instance.isStart = true; });
+
+        }
+
+        StopCoroutine(CoShuffleCard());
+    }
+
     public void SetCardCount(int cardCount)
     {
         this.cardCount = cardCount;
+    }
+
+    internal void RemoveCardGo(GameObject card)
+    {
+        cardList.Remove(card);
     }
 }

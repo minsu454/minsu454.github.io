@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using static UnityEngine.Rendering.DebugUI;
 
 public class StageManager : MonoBehaviour
 {
@@ -47,6 +49,10 @@ public class StageManager : MonoBehaviour
         AddStage(10, 24, 50);
         AddStage(11, 24, 35);
         AddStage(12, 24, 25);
+
+        AddStage(13, 16, 60, true, BossType.Shuffle);
+        AddStage(14, 16, 60, true, BossType.Same);
+        AddStage(15, 16, 60, true, (BossType.Same | BossType.Shuffle));
 
         GetHighPlayLevel();
     }
@@ -102,7 +108,7 @@ public class StageManager : MonoBehaviour
         stageList.Add(st1);
     }
 
-    public void AddStage(int level, int cardMax, float Time, bool isBoss)
+    public void AddStage(int level, int cardMax, float Time, bool isBoss, BossType type)
     {
         if (stageList.Count != level - 1)
         {
@@ -110,7 +116,7 @@ public class StageManager : MonoBehaviour
             return;
         }
 
-        Stage st1 = new Stage(level, cardMax, Time, isBoss);
+        Stage st1 = new Stage(level, cardMax, Time, isBoss, type);
 
         stageList.Add(st1);
     }
@@ -121,6 +127,11 @@ public class StageManager : MonoBehaviour
             return stageList[0];
 
         return stageList[stageLevel];
+    }
+
+    public bool IsContainFlag(BossType type, BossType value)
+    {
+        return (type & value) != 0;
     }
 
 }

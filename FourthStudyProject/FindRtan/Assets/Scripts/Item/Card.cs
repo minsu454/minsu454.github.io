@@ -48,23 +48,25 @@ public class Card : MonoBehaviour
 
     public void DestoryCard()
     {
-        Invoke(nameof(DestoryCardInvoke), 0.5f);
+        GameManager.Instance.board.RemoveCardGo(gameObject);
+        Invoke(nameof(DestoryCardInvoke), 0.3f);
     }
 
     public void DestoryCardInvoke()
     {
         Destroy(gameObject);
-        
     }
 
-    public void CloseCard()
+    public void CloseCard(bool isIvoke = true)
     {
-        Invoke(nameof(CloseCardInvoke), 0.5f);
+        if (isIvoke)
+            Invoke(nameof(CloseCardInvoke), 0.3f);
+        else
+            CloseCardInvoke();
     }
 
     public void CloseCardInvoke()
     {
-        
         anim.SetBool("isOpen", false);
         front.SetActive(false);
         back.SetActive(true);

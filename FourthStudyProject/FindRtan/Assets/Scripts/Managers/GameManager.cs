@@ -36,13 +36,34 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
 
+        SetStage();
+    }
+
+    public void SetStage()
+    {
         Stage nowStage = StageManager.Instance.GetStage();
 
-        TimeManager.Instance.SetTime(nowStage.time);
+        if ((nowStage.type & BossType.Shuffle) != 0)
+        {
+            TimeManager.Instance.SetTime(nowStage.time, true);
+        }
+        else
+        {
+            TimeManager.Instance.SetTime(nowStage.time);
+        }
+
+        if ((nowStage.type & BossType.Shuffle) != 0)
+        {
+        }
+        else
+        {
+        }
+
+
         board.SetCardCount(nowStage.cardMax);
         cardCount = nowStage.cardMax;
 
-        stageTxt.text = $"{stageTxt.text}{nowStage.level}"; 
+        stageTxt.text = $"{stageTxt.text}{nowStage.level}";
     }
 
     public void Matched()

@@ -84,16 +84,3 @@ public class SoundManager : MonoBehaviour
         }
     }
 }
-
-public enum SfxType
-{
-    Coin = 0,
-    Flip = 1,
-    Match = 2,
-}
-
-public enum BgmType
-{
-    Bgmusic = 0,
-
-}

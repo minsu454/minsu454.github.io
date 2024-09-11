@@ -5,6 +5,7 @@ using UnityEngine;
 public class HiddenStageChoiceUI : MonoBehaviour
 {
     public GameObject stageChoiceUI;
+    public GameObject balls;
 
     public Animator HiddenUIAnim;
 
@@ -23,6 +24,7 @@ public class HiddenStageChoiceUI : MonoBehaviour
     {
         stageChoiceUI.transform.position = new Vector3(Screen.width / 2, Screen.height / 2);
         stageChoiceUI.SetActive(true);
+        balls.SetActive(false);
 
         HiddenUIAnim.SetBool("isMove", true);
     }
