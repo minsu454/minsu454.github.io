@@ -10,7 +10,14 @@ public class LoadSceneButton : MonoBehaviour
         SceneManager.LoadScene(name);
     }
 
-    public void LoadScene()
+    public void LoadScene(int value)
+    {
+        StageManager.Instance.stageLevel = value;
+
+        LoadScene("MainScene");
+    }
+
+    public void NextLevelLoadScene()
     {
         StageManager.Instance.stageLevel++;
 

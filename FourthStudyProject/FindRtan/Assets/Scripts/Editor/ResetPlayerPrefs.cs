@@ -11,4 +11,11 @@ public class ResetPlayerPrefs
         PlayerPrefs.DeleteAll();
         Debug.Log("PlayerPrefs is Reset.");
     }
+
+    [MenuItem("Tools/PlayerPrefs/StageAllClear")]
+    private static void StageAllClear()
+    {
+        PlayerPrefs.SetInt("Rtan", 100);
+        Debug.Log("Stage All Clear.");
+    }
 }

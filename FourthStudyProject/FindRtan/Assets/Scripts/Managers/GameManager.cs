@@ -15,11 +15,11 @@ public class GameManager : MonoBehaviour
     public Card secondCard;
 
     [Header("UI")]
-    public GameObject endTxt;
     public GameObject stageUI;
     public GameObject settingUI;
     public Text stageTxt;
     public GameObject GameOverUI;
+    public GameObject GameClearUI;
 
     [Header("Board")]
     public Board board;
@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
     public void GameClear()
     {
         Time.timeScale = 0f;
-        endTxt.SetActive(true);
+        GameClearUI.SetActive(true);
 
         if (StageManager.Instance.IsMyLevelHighest())
         {
