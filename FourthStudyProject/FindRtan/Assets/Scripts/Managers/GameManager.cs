@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     public GameObject endTxt;
     public GameObject stageUI;
     public GameObject settingUI;
+    public Text stageTxt;
+    public GameObject GameOverUI;
 
     [Header("Board")]
     public Board board;
@@ -39,14 +41,15 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         audioSource = GetComponent<AudioSource>();
 
-        if (SceneManager.GetActiveScene().name == "MainScene")
-        {
-            Stage nowStage = StageManager.Instance.GetStage();
+        Stage nowStage = StageManager.Instance.GetStage();
 
-            TimeManager.Instance.SetTime(nowStage.time);
-            board.SetCardCount(nowStage.cardMax);
-            cardCount = nowStage.cardMax;
-        }
+        Debug.Log($"{nowStage.level} {nowStage.time} {nowStage.cardMax}");
+
+        TimeManager.Instance.SetTime(nowStage.time);
+        board.SetCardCount(nowStage.cardMax);
+        cardCount = nowStage.cardMax;
+
+        stageTxt.text = $"{stageTxt.text}{nowStage.level}"; 
     }
 
     public void Matched()
@@ -61,7 +64,7 @@ public class GameManager : MonoBehaviour
 
             if (cardCount == 0)
             {
-                EndGame();
+                GameClear();
             }
         }
         else
@@ -74,10 +77,21 @@ public class GameManager : MonoBehaviour
         secondCard = null;
     }
 
-    public void EndGame()
+    public void GameOver()
+    {
+        GameOverUI.SetActive(true);
+    }
+
+    public void GameClear()
     {
         Time.timeScale = 0f;
         endTxt.SetActive(true);
+
+        if (StageManager.Instance.IsMyLevelHighest())
+        {
+            StageManager.Instance.SetHighPlayLevel();
+            Debug.Log("NextLevel");
+        }
     }
 
     private void OnDestroy()
