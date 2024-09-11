@@ -12,6 +12,13 @@ public class ResetPlayerPrefs
         Debug.Log("PlayerPrefs is Reset.");
     }
 
+    [MenuItem("Tools/PlayerPrefs/Skip")]
+    private static void Skip()
+    {
+        PlayerPrefs.SetInt("Rtan", 12);
+        Debug.Log("Stage Skip.");
+    }
+
     [MenuItem("Tools/PlayerPrefs/StageAllClear")]
     private static void StageAllClear()
     {

@@ -9,8 +9,7 @@ public class TitleManager : MonoBehaviour
 
     [Header("UI")]
     public GameObject titleUI;
-    public GameObject stageChoiceUI;
-    public List<StageUI> stageUIList = new List<StageUI>();
+    public StageChoiceUI stageChoiceUI;
 
     public Animator rtan1Anim;
     public Animator rtan2Anim;
@@ -24,22 +23,12 @@ public class TitleManager : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1f;
-
-        StageChoiceLockUI();
-    }
-
-    public void StageChoiceLockUI()
-    {
-        for (int i = 0; i < StageManager.Instance.MinUnlockLevel; i++)
-        {
-            stageUIList[i].SetUnlock(true);
-        }
     }
 
     public void StartSceneUI(bool active)
     {
         titleUI.SetActive(active);
-        stageChoiceUI.SetActive(!active);
+        stageChoiceUI.gameObject.SetActive(!active);
     }
 
     private void OnDestroy()
