@@ -37,7 +37,7 @@ public class StageManager : MonoBehaviour
         AddStage(3, 8, 15);
 
         AddStage(4, 12, 40);
-        AddStage(5,12, 30);
+        AddStage(5, 12, 30);
         AddStage(6, 12, 20);
 
         AddStage(7, 16, 60);

@@ -1714,6 +1714,7 @@ MonoBehaviour:
   endTxt: {fileID: 78733571}
   stageUI: {fileID: 0}
   settingUI: {fileID: 763979164}
+  stageTxt: {fileID: 1162870518}
   GameOverUI: {fileID: 1907678793}
   board: {fileID: 240583926}
   clip: {fileID: 8300000, guid: b4391134731453f4e8156020ded5170d, type: 3}
@@ -1864,8 +1865,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -261, y: 579}
-  m_SizeDelta: {x: 250, y: 100}
+  m_AnchoredPosition: {x: -267, y: 547.7}
+  m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1162870517
 MonoBehaviour:
@@ -1909,13 +1910,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 7
     m_MaxSize: 70
-    m_Alignment: 4
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Level 1
+  m_Text: 'Lv. '
 --- !u!222 &1162870519
 CanvasRenderer:
   m_ObjectHideFlags: 0
