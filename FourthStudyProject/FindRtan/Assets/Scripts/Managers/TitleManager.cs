@@ -23,6 +23,7 @@ public class TitleManager : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1f;
+        SoundManager.Instance.PlayBGM(BgmType.Bgmusic);
     }
 
     public void StartSceneUI(bool active)

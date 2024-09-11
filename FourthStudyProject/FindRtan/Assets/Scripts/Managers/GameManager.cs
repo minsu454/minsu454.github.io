@@ -24,10 +24,6 @@ public class GameManager : MonoBehaviour
     [Header("Board")]
     public Board board;
 
-    [Header("Audio")]
-    private AudioSource audioSource;
-    public AudioClip clip;
-
     public int cardCount = 0;
 
     private void Awake()
@@ -39,7 +35,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1f;
-        audioSource = GetComponent<AudioSource>();
 
         Stage nowStage = StageManager.Instance.GetStage();
 
@@ -54,7 +49,7 @@ public class GameManager : MonoBehaviour
     {
         if (firstCard.idx == secondCard.idx)
         {
-            audioSource.PlayOneShot(clip);
+            SoundManager.Instance.PlaySFX(SfxType.Match);
 
             firstCard.DestoryCard();
             secondCard.DestoryCard();

@@ -15,7 +15,7 @@ public class ResetPlayerPrefs
     [MenuItem("Tools/PlayerPrefs/Skip")]
     private static void Skip()
     {
-        PlayerPrefs.SetInt("Rtan", 12);
+        PlayerPrefs.SetInt("Rtan", 13);
         Debug.Log("Stage Skip.");
     }
 
