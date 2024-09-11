@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
 
             if (cardCount == 0)
             {
-                EndGame();
+                GameClear();
             }
         }
         else
@@ -74,10 +74,22 @@ public class GameManager : MonoBehaviour
         secondCard = null;
     }
 
-    public void EndGame()
+    public void GameOver()
     {
         Time.timeScale = 0f;
         endTxt.SetActive(true);
+    }
+
+    public void GameClear()
+    {
+        Time.timeScale = 0f;
+        endTxt.SetActive(true);
+
+        if (StageManager.Instance.IsMyLevelHighest())
+        {
+            StageManager.Instance.SetHighPlayLevel();
+            Debug.Log("NextLevel");
+        }
     }
 
     private void OnDestroy()

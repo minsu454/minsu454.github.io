@@ -10,6 +10,17 @@ public class StageManager : MonoBehaviour
 
     public int stageLevel = -1;
 
+    private int minUnlockLevel = 1;
+    public int MinUnlockLevel
+    {
+        get { return minUnlockLevel; }
+    }
+
+    public bool isTest = false;
+    public int testHighestLevel = 5;
+
+    private string keyCode = "Rtan";
+
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void init()
     {
@@ -35,7 +46,47 @@ public class StageManager : MonoBehaviour
 
         AddStage(24, 50);
         AddStage(24, 35);
-        AddStage(24, 20);
+        AddStage(24, 25);
+
+        GetHighPlayLevel();
+    }
+
+    public bool IsMyLevelHighest()
+    {
+        if (stageLevel + 1 >= minUnlockLevel)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public void SetHighPlayLevel()
+    {
+        minUnlockLevel++;
+        PlayerPrefs.SetInt(keyCode, minUnlockLevel);
+    }
+
+    public void SetHighPlayLevel(int value)
+    {
+        minUnlockLevel = value;
+        PlayerPrefs.SetInt(keyCode, value);
+    }
+
+    private void GetHighPlayLevel()
+    {
+        if (isTest)
+        {
+            minUnlockLevel = testHighestLevel;
+            return;
+        }
+
+        if (!PlayerPrefs.HasKey(keyCode))
+        {
+            Debug.Log($"is not keyCode : {keyCode}");
+            return;
+        }
+
+        minUnlockLevel = PlayerPrefs.GetInt(keyCode);
     }
 
     public void AddStage(int cardMax, float Time)
@@ -49,6 +100,7 @@ public class StageManager : MonoBehaviour
     {
         if (stageLevel == -1)
             return stageList[0];
+
         return stageList[stageLevel];
     }
 

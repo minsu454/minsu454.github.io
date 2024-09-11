@@ -28,7 +28,7 @@ public class TimeManager : MonoBehaviour
         {
             time = 0;
 
-            GameManager.Instance.EndGame();
+            GameManager.Instance.GameOver();
         }
         else
         {
