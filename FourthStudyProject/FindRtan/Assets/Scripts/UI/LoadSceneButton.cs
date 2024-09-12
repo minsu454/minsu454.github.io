@@ -5,11 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class LoadSceneButton : MonoBehaviour
 {
+    /// <summary>
+    /// LoadScene해주는 함수
+    /// </summary>
     public void LoadScene(string name)
     {
         SceneManager.LoadScene(name);
     }
 
+    /// <summary>
+    /// LoadScene해주는 함수(현재 내가 선택한 stage 저장)
+    /// </summary>
     public void LoadScene(int value)
     {
         StageManager.Instance.stageLevel = value;
@@ -17,51 +23,13 @@ public class LoadSceneButton : MonoBehaviour
         LoadScene("MainScene");
     }
 
+    /// <summary>
+    /// 플레이 중인 레벨에 다음레벨로 넘어가는 함수
+    /// </summary>
     public void NextLevelLoadScene()
     {
         StageManager.Instance.stageLevel++;
 
         LoadScene("MainScene");
     }
-
-    #region Title
-    public void ChangeStartSceneUI(bool showTitle)
-    {
-        if (showTitle)
-        {
-            TitleManager.Instance.rtan2Anim.SetBool("isMove", true);
-        }
-        else
-        {
-            TitleManager.Instance.rtan1Anim.SetBool("isMove", true);
-        }
-        
-    }
-
-    public void Rtan1MoveUI()
-    {
-        TitleManager.Instance.StartSceneUI(false);
-        TitleManager.Instance.rtan1Anim.SetBool("isMove", false);
-    }
-
-    public void Rtan2MoveUI()
-    {
-        TitleManager.Instance.StartSceneUI(true);
-        TitleManager.Instance.rtan2Anim.SetBool("isMove", false);
-    }
-    #endregion
-
-    #region InGame
-    public void PauseBtnUI()
-    {
-        Time.timeScale = 0f;
-        GameManager.Instance.settingUI.SetActive(true);
-    }
-
-    public void CloseBtnUI()
-    {
-        GameManager.Instance.settingUI.SetActive(false);
-        Time.timeScale = 1f;
-    }
-    #endregion
 }

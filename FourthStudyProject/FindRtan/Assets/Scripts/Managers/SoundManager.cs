@@ -11,20 +11,23 @@ public class SoundManager : MonoBehaviour
         get { return instance; }
     }
 
-    public AudioSource sfxSource;
-    public AudioSource bgmSource;
+    public AudioSource sfxSource;       //sfx전용 오디오 변수
+    public AudioSource bgmSource;       //bgm전용 오디오 변수
 
-    private Dictionary<SfxType, AudioClip> sfxClipDic = new Dictionary<SfxType, AudioClip>();
-    private Dictionary<BgmType, AudioClip> bgmClipDic = new Dictionary<BgmType, AudioClip>();
+    private Dictionary<SfxType, AudioClip> sfxClipDic = new Dictionary<SfxType, AudioClip>();       //sfx클립 저장해놓는 Dic
+    private Dictionary<BgmType, AudioClip> bgmClipDic = new Dictionary<BgmType, AudioClip>();       //bgm클립 저장해놓는 Dic
 
-    private AudioSource audioSource;
-    public AudioClip clip;
-
+    /// <summary>
+    /// SFX 재생 함수
+    /// </summary>
     public void PlaySFX(SfxType type)
     {
         sfxSource.PlayOneShot(sfxClipDic[type]);
     }
 
+    /// <summary>
+    /// BGM 재생 함수
+    /// </summary>
     public void PlayBGM(BgmType type)
     {
         if (bgmSource.clip == bgmClipDic[type])
@@ -34,6 +37,9 @@ public class SoundManager : MonoBehaviour
         bgmSource.Play();
     }
 
+    /// <summary>
+    /// SoundManager 생성 함수
+    /// </summary>
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static void Init()
     {
@@ -56,30 +62,27 @@ public class SoundManager : MonoBehaviour
         instance.sfxSource.playOnAwake = false;
 
         var sfxClipArr = Resources.LoadAll<AudioClip>("Sounds/SFX");
-        for (int i = 0; i < sfxClipArr.Length; i++)
-        {
-            try
-            {
-                SfxType type = (SfxType)Enum.Parse(typeof(SfxType), sfxClipArr[i].name);
-                instance.sfxClipDic.Add(type, sfxClipArr[i]);
-            }
-            catch
-            {
-                Debug.LogWarning("Need SfxType Enum : " + sfxClipArr[i].name);
-            }
-        }
+        instance.ClipLoader(ref instance.sfxClipDic, sfxClipArr);
 
         var bgmClipArr = Resources.LoadAll<AudioClip>("Sounds/BGM");
-        for (int i = 0; i < bgmClipArr.Length; i++)
+        instance.ClipLoader(ref instance.bgmClipDic, bgmClipArr);
+    }
+
+    /// <summary>
+    /// 클립 읽어주는 함수
+    /// </summary>
+    public void ClipLoader<T>(ref Dictionary<T, AudioClip> dic, AudioClip[] arr) where T : Enum
+    {
+        for (int i = 0; i < arr.Length; i++)
         {
             try
             {
-                BgmType type = (BgmType)Enum.Parse(typeof(BgmType), bgmClipArr[i].name);
-                instance.bgmClipDic.Add(type, bgmClipArr[i]);
+                T type = (T)Enum.Parse(typeof(T), arr[i].name);
+                dic.Add(type, arr[i]);
             }
             catch
             {
-                Debug.LogWarning("Need SfxType Enum : " + sfxClipArr[i].name);
+                Debug.LogWarning("Need Enum : " + arr[i].name);
             }
         }
     }

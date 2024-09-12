@@ -5,6 +5,9 @@ using UnityEditor;
 
 public class ResetPlayerPrefs
 {
+    /// <summary>
+    /// PlayerPrefs초기화 함수
+    /// </summary>
     [MenuItem("Tools/PlayerPrefs/Reset")]
     private static void Reset()
     {
@@ -12,6 +15,9 @@ public class ResetPlayerPrefs
         Debug.Log("PlayerPrefs is Reset.");
     }
 
+    /// <summary>
+    /// 보스 x까지 스킵시켜주는 함수
+    /// </summary>
     [MenuItem("Tools/PlayerPrefs/Skip/GoToX")]
     private static void SkipX()
     {
@@ -19,6 +25,9 @@ public class ResetPlayerPrefs
         Debug.Log("Stage Skip.");
     }
 
+    /// <summary>
+    /// 보스 y까지 스킵시켜주는 함수
+    /// </summary>
     [MenuItem("Tools/PlayerPrefs/Skip/GoToY")]
     private static void SkipY()
     {
@@ -26,6 +35,9 @@ public class ResetPlayerPrefs
         Debug.Log("Stage Skip.");
     }
 
+    /// <summary>
+    /// 보스 z까지 스킵시켜주는 함수
+    /// </summary>
     [MenuItem("Tools/PlayerPrefs/Skip/GoToZ")]
     private static void SkipZ()
     {
@@ -33,6 +45,9 @@ public class ResetPlayerPrefs
         Debug.Log("Stage Skip.");
     }
 
+    /// <summary>
+    /// 모두 클리어 함수
+    /// </summary>
     [MenuItem("Tools/PlayerPrefs/StageAllClear")]
     private static void StageAllClear()
     {

@@ -208,9 +208,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 30285049}
-        m_TargetAssemblyTypeName: LoadSceneButton, Assembly-CSharp
-        m_MethodName: ChangeStartSceneUI
+      - m_Target: {fileID: 40739759}
+        m_TargetAssemblyTypeName: TitleManager, Assembly-CSharp
+        m_MethodName: ChangeUIBtn
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2262,7 +2262,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 421122294}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6d505a1a0ae17a4684872e7697ed758, type: 3}
+  m_Script: {fileID: 11500000, guid: a75572b875fb5824191dcd1f684082fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &441101638
@@ -4305,7 +4305,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1009840444}
   - component: {fileID: 1009840449}
-  - component: {fileID: 1009840448}
   - component: {fileID: 1009840447}
   - component: {fileID: 1009840446}
   - component: {fileID: 1009840445}
@@ -4394,9 +4393,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1009840448}
-        m_TargetAssemblyTypeName: LoadSceneButton, Assembly-CSharp
-        m_MethodName: ChangeStartSceneUI
+      - m_Target: {fileID: 40739759}
+        m_TargetAssemblyTypeName: TitleManager, Assembly-CSharp
+        m_MethodName: ChangeUIBtn
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4436,18 +4435,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1009840448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1009840443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6d505a1a0ae17a4684872e7697ed758, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &1009840449
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4972,7 +4959,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 304342686}
         m_TargetAssemblyTypeName: HiddenStageChoiceUI, Assembly-CSharp
-        m_MethodName: HiddenMoveUI
+        m_MethodName: PlayAnim
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5030,7 +5017,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1181992532}
   - component: {fileID: 1181992535}
-  - component: {fileID: 1181992537}
+  - component: {fileID: 1181992536}
   - component: {fileID: 1181992534}
   - component: {fileID: 1181992533}
   m_Layer: 5
@@ -5118,7 +5105,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1181992531}
   m_CullTransparentMesh: 1
---- !u!114 &1181992537
+--- !u!114 &1181992536
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5127,7 +5114,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1181992531}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6d505a1a0ae17a4684872e7697ed758, type: 3}
+  m_Script: {fileID: 11500000, guid: a75572b875fb5824191dcd1f684082fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1209053749
@@ -7072,7 +7059,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1611295009
 RectTransform:
   m_ObjectHideFlags: 0

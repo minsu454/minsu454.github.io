@@ -225,6 +225,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 207953302}
+  - component: {fileID: 207953303}
   m_Layer: 5
   m_Name: GameClearUI
   m_TagString: Untagged
@@ -256,6 +257,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &207953303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207953301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60a41014ce3dcdf45becd18f0cf7fe25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &240583924
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,6 +315,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardPrefab: {fileID: 2694076866613884428, guid: 1793ffa711e5cb2429b493f2e4d795d7, type: 3}
   cardCount: 0
+  firstCard: {fileID: 0}
+  secondCard: {fileID: 0}
 --- !u!1 &351799796
 GameObject:
   m_ObjectHideFlags: 0
@@ -1375,6 +1390,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 763979165}
+  - component: {fileID: 763979166}
   m_Layer: 5
   m_Name: SettingUI
   m_TagString: Untagged
@@ -1406,6 +1422,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &763979166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763979164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ed2a667129a6644181a4a4b0d24b1c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &883442160
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,7 +1444,6 @@ GameObject:
   m_Component:
   - component: {fileID: 883442161}
   - component: {fileID: 883442164}
-  - component: {fileID: 883442165}
   - component: {fileID: 883442163}
   - component: {fileID: 883442162}
   m_Layer: 5
@@ -1489,9 +1516,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 883442165}
-        m_TargetAssemblyTypeName: LoadSceneButton, Assembly-CSharp
-        m_MethodName: CloseBtnUI
+      - m_Target: {fileID: 763979166}
+        m_TargetAssemblyTypeName: SettingUI, Assembly-CSharp
+        m_MethodName: CloseBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1539,18 +1566,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 883442160}
   m_CullTransparentMesh: 1
---- !u!114 &883442165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 883442160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6d505a1a0ae17a4684872e7697ed758, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &976279612
 GameObject:
   m_ObjectHideFlags: 0
@@ -1802,15 +1817,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00862f849bb380e47823e6cff963f283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstCard: {fileID: 0}
-  secondCard: {fileID: 0}
-  stageUI: {fileID: 0}
-  settingUI: {fileID: 763979164}
   stageTxt: {fileID: 1162870518}
+  settingUI: {fileID: 763979164}
   GameOverUI: {fileID: 1907678793}
   GameClearUI: {fileID: 207953301}
   board: {fileID: 240583926}
-  cardCount: 0
 --- !u!4 &1086540908
 Transform:
   m_ObjectHideFlags: 0
@@ -2417,8 +2428,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1771146523}
-        m_TargetAssemblyTypeName: LoadSceneButton, Assembly-CSharp
-        m_MethodName: PauseBtnUI
+        m_TargetAssemblyTypeName: PauseButton, Assembly-CSharp
+        m_MethodName: PauseBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2475,7 +2486,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1771146518}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6d505a1a0ae17a4684872e7697ed758, type: 3}
+  m_Script: {fileID: 11500000, guid: e4313c6c0f772e44c84cb60e4e5d1312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1803474466
