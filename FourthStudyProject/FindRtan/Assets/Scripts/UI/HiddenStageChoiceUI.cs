@@ -4,28 +4,34 @@ using UnityEngine;
 
 public class HiddenStageChoiceUI : MonoBehaviour
 {
-    public GameObject stageChoiceUI;
-    public GameObject balls;
+    public GameObject stageChoiceUI;        //stageChoiceUI
+    public GameObject balls;                //아래움직이는 ball들 묶어논 obj
 
-    public Animator HiddenUIAnim;
+    public Animator HiddenUIAnim;           //UI Anim
 
-    public void GoToStageChoiceUI()
+    private void OnEnable()
     {
-        StageChoiceUI();
-        HiddenUIAnim.SetBool("isMove", false);
+        balls.SetActive(true);
     }
 
-    private void StageChoiceUI()
-    {
-        gameObject.SetActive(false);
-    }
-
-    public void HiddenMoveUI()
+    /// <summary>
+    /// HiddenstageUI -> stageChoiceUI 전환 애니메이션 함수
+    /// </summary>
+    public void PlayAnim()
     {
         stageChoiceUI.transform.position = new Vector3(Screen.width / 2, Screen.height / 2);
         stageChoiceUI.SetActive(true);
         balls.SetActive(false);
 
         HiddenUIAnim.SetBool("isMove", true);
+    }
+
+    /// <summary>
+    /// 변환완료된 함수
+    /// </summary>
+    public void AnimOnComplete()
+    {
+        gameObject.SetActive(false);
+        HiddenUIAnim.SetBool("isMove", false);
     }
 }

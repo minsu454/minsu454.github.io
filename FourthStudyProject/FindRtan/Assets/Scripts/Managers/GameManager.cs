@@ -10,21 +10,14 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    [Header("Card")]
-    public Card firstCard;
-    public Card secondCard;
-
     [Header("UI")]
-    public GameObject stageUI;
-    public GameObject settingUI;
-    public Text stageTxt;
-    public GameObject GameOverUI;
-    public GameObject GameClearUI;
+    public Text stageTxt;               //몇 stage인지 보여주는 UI
+    public GameObject settingUI;        //설정시 나타나는 UI
+    public GameObject GameOverUI;       //게임 오버시 나타나는 UI
+    public GameObject GameClearUI;      //게임 클리어시 나타나는 UI
 
     [Header("Board")]
-    public Board board;
-
-    public int cardCount = 0;
+    public Board board;         //게임 보드 변수
 
     private void Awake()
     {
@@ -36,66 +29,20 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
 
-        SetStage();
+        StageManager.Instance.SetStage();
     }
 
-    public void SetStage()
-    {
-        Stage nowStage = StageManager.Instance.GetStage();
-
-        if ((nowStage.type & BossType.Shuffle) != 0)
-        {
-            TimeManager.Instance.SetTime(nowStage.time, true);
-        }
-        else
-        {
-            TimeManager.Instance.SetTime(nowStage.time);
-        }
-
-        if ((nowStage.type & BossType.Shuffle) != 0)
-        {
-        }
-        else
-        {
-        }
-
-
-        board.SetCardCount(nowStage.cardMax);
-        cardCount = nowStage.cardMax;
-
-        stageTxt.text = $"{stageTxt.text}{nowStage.level}";
-    }
-
-    public void Matched()
-    {
-        if (firstCard.idx == secondCard.idx)
-        {
-            SoundManager.Instance.PlaySFX(SfxType.Match);
-
-            firstCard.DestoryCard();
-            secondCard.DestoryCard();
-            cardCount -= 2;
-
-            if (cardCount == 0)
-            {
-                GameClear();
-            }
-        }
-        else
-        {
-            firstCard.CloseCard();
-            secondCard.CloseCard();
-        }
-
-        firstCard = null;
-        secondCard = null;
-    }
-
+    /// <summary>
+    /// 게임오버 함수
+    /// </summary>
     public void GameOver()
     {
         GameOverUI.SetActive(true);
     }
 
+    /// <summary>
+    /// 게임클리어 함수
+    /// </summary>
     public void GameClear()
     {
         Time.timeScale = 0f;
@@ -103,7 +50,7 @@ public class GameManager : MonoBehaviour
 
         if (StageManager.Instance.IsMyLevelHighest())
         {
-            StageManager.Instance.SetHighPlayLevel();
+            StageManager.Instance.SetHighLevelData();
             Debug.Log("NextLevel");
         }
     }

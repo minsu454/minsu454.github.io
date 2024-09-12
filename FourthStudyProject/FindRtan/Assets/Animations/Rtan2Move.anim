@@ -139,7 +139,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.5
-    functionName: Rtan2MoveUI
+    functionName: Rtan2ANimOnComplete
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

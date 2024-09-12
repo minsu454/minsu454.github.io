@@ -1,21 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+/// <summary>
+/// 스테이지 구성 class
+/// </summary>
 public class Stage
 {
-    public int level;
-    public int cardMax;
-    public float time;
-    public bool isBoss;
-    public BossType type;
+    public int level;       //현재 레벨
+    public int cardMax;     //카드 장수
+    public float time;      //플레이 타임
+    public BossType type;   //보스인지 아닌지 확인 시켜주는 enum
 
-    public Stage(int level, int cardMax, float Time, bool isBoss = false, BossType type = BossType.None)
+    public Stage(int level, int cardMax, float Time, BossType type = BossType.None)
     {
         this.level = level;
         this.cardMax = cardMax;
         this.time = Time;
-        this.isBoss = isBoss;
         this.type = type;
     }
 }

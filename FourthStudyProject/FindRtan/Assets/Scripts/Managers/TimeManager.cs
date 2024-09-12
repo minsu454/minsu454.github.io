@@ -9,14 +9,14 @@ public class TimeManager : MonoBehaviour
 {
     public static TimeManager Instance;
 
-    public Text timeTxt;
-    private float time = 0f;
+    public Text timeTxt;            //시간UI
+    private float time = 0f;        //남은시간 변수
 
-    private float curCheckTime = 10f;
-    private float maxcheckTime = 10f;
-    private bool isShuffle;
+    public bool isStart = false;        //게임 시작인지 알려주는 변수
 
-    public bool isStart = false;
+    private bool isShuffle;             //셔플하는지 나타내주는 변수
+    private float curCheckTime = 10f;   //셔플 시간 체크시 사용하는 현재 남은 시간 변수
+    private float maxcheckTime = 10f;   //셔플 시간 체크시 현재 남은 시간 초기화용 변수
 
     private void Awake()
     {
@@ -28,6 +28,14 @@ public class TimeManager : MonoBehaviour
     {
         if (!isStart) return;
 
+        CheckTime();
+    }
+
+    /// <summary>
+    /// 시간 체크 함수
+    /// </summary>
+    private void CheckTime()
+    {
         if (time <= 0)
         {
             time = 0;
@@ -48,13 +56,16 @@ public class TimeManager : MonoBehaviour
                 }
                 curCheckTime -= Time.deltaTime;
             }
-            
+
             time -= Time.deltaTime;
         }
 
         timeTxt.text = time.ToString("N2");
     }
 
+    /// <summary>
+    /// 시작 전에 시간 및 셔플 설정해주는 함수
+    /// </summary>
     public void SetTime(float time, bool isShuffle = false)
     {
         this.time = time;
