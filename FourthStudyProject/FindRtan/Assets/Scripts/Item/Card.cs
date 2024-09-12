@@ -20,6 +20,12 @@ public class Card : MonoBehaviour
         frontImage.sprite = Resources.Load<Sprite>($"Cards/Card{idx}");
     }
 
+    public void Setting(int number, int spriteNum)
+    {
+        idx = number;
+        frontImage.sprite = Resources.Load<Sprite>($"Cards/Card{spriteNum}");
+    }
+
     public void OpenCard()
     {
         if (GameManager.Instance.secondCard != null) return;

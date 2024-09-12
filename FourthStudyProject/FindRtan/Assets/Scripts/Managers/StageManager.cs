@@ -44,15 +44,15 @@ public class StageManager : MonoBehaviour
 
         AddStage(7, 16, 60);
         AddStage(8, 16, 40);
-        AddStage(9, 16, 30);
+        AddStage(9, 16, 25);
 
         AddStage(10, 24, 50);
-        AddStage(11, 24, 35);
-        AddStage(12, 24, 25);
+        AddStage(11, 24, 40);
+        AddStage(12, 24, 30);
 
-        AddStage(13, 16, 60, true, BossType.Shuffle);
-        AddStage(14, 16, 60, true, BossType.Same);
-        AddStage(15, 16, 60, true, (BossType.Same | BossType.Shuffle));
+        AddStage(13, 24, 50, BossType.Shuffle);
+        AddStage(14, 16, 50, BossType.Same);
+        AddStage(15, 16, 50, BossType.ImageError);
 
         GetHighPlayLevel();
     }
@@ -95,7 +95,7 @@ public class StageManager : MonoBehaviour
         minUnlockLevel = PlayerPrefs.GetInt(keyCode);
     }
 
-    public void AddStage(int level, int cardMax, float Time)
+    public void AddStage(int level, int cardMax, float Time, BossType type = BossType.None)
     {
         if (stageList.Count != level - 1)
         {
@@ -103,20 +103,7 @@ public class StageManager : MonoBehaviour
             return;
         }
 
-        Stage st1 = new Stage(level, cardMax, Time);
-
-        stageList.Add(st1);
-    }
-
-    public void AddStage(int level, int cardMax, float Time, bool isBoss, BossType type)
-    {
-        if (stageList.Count != level - 1)
-        {
-            Debug.Log("Before Level is None.");
-            return;
-        }
-
-        Stage st1 = new Stage(level, cardMax, Time, isBoss, type);
+        Stage st1 = new Stage(level, cardMax, Time, type);
 
         stageList.Add(st1);
     }

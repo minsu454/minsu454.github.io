@@ -14,7 +14,7 @@ public class Board : MonoBehaviour
 
     public int cardCount = 0;
 
-    void Start()
+    public void StartGame(BossType type = BossType.None)
     {
         if (cardCount % 2 != 0) return;
 
@@ -31,8 +31,20 @@ public class Board : MonoBehaviour
         for (int i = 0; i < list.Count; i++)
         {
             GameObject go = Instantiate(cardPrefab, transform);
-            go.GetComponent<Card>().Setting(list[i]);
 
+            switch (type)
+            {
+                case BossType.Same:
+                    go.GetComponent<Card>().Setting(list[i], 0);
+                    break;
+                case BossType.ImageError:
+                    go.GetComponent<Card>().Setting(list[i], Random.Range(0, cardCount / 2));
+                    break;
+                default:
+                    go.GetComponent<Card>().Setting(list[i]);
+                break;
+            }
+            
             cardList.Add(go);
         }
 
@@ -96,19 +108,11 @@ public class Board : MonoBehaviour
             cardList[i].transform.DOMove(new Vector2(2, 4), 0.7f);
         }
 
+        cardList = cardList.OrderBy(x => Random.Range(0f, 7f)).ToList();
+
         yield return new WaitForSeconds(0.8f);
 
-        for (int i = 0; i < cardList.Count; i++)
-        {
-            float x;
-            float y;
-
-            x = i % 4 * 1.4f - 2.1f;
-            y = i / 4 * 1.4f - 3.0f;
-
-            cardList[i].transform.DOMove(new Vector2(x, y), 0.7f).OnComplete(() => { TimeManager.Instance.isStart = true; });
-
-        }
+        MoveCard();
 
         StopCoroutine(CoShuffleCard());
     }

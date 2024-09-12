@@ -43,6 +43,9 @@ public class GameManager : MonoBehaviour
     {
         Stage nowStage = StageManager.Instance.GetStage();
 
+        board.SetCardCount(nowStage.cardMax);
+        cardCount = nowStage.cardMax;
+
         if ((nowStage.type & BossType.Shuffle) != 0)
         {
             TimeManager.Instance.SetTime(nowStage.time, true);
@@ -52,18 +55,38 @@ public class GameManager : MonoBehaviour
             TimeManager.Instance.SetTime(nowStage.time);
         }
 
-        if ((nowStage.type & BossType.Shuffle) != 0)
+        switch (nowStage.type)
         {
+            case BossType.Same:
+                board.StartGame(BossType.Same);
+                break;
+            case BossType.ImageError:
+                board.StartGame(BossType.ImageError);
+                break;
+            default:
+                board.StartGame();
+                break;
         }
-        else
+
+        string levelName = string.Empty;
+
+        switch(nowStage.level)
         {
+            case 13:
+                levelName = $"BossX";
+                break;
+            case 14:
+                levelName = $"BossY";
+                break;
+            case 15:
+                levelName = $"BossZ";
+                break;
+            default:
+                levelName = $"{stageTxt.text}{nowStage.level}";
+                break;
         }
 
-
-        board.SetCardCount(nowStage.cardMax);
-        cardCount = nowStage.cardMax;
-
-        stageTxt.text = $"{stageTxt.text}{nowStage.level}";
+        stageTxt.text = levelName;
     }
 
     public void Matched()
