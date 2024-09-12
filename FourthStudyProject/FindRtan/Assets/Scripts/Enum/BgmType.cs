@@ -1,8 +1,8 @@
 /// <summary>
-/// bgm Å¸ÀÔ
+/// BGM íƒ€ì…
 /// </summary>
 public enum BgmType
 {
-    Bgmusic = 0,    //¸ŞÀÎ ºê±İ
+    Bgmusic = 0,    //ë©”ì¸ ë¸Œê¸ˆ
 
 }
