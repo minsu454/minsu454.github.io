@@ -1,9 +1,9 @@
 /// <summary>
-/// sfx Å¸ÀÔ
+/// sfx íƒ€ìž…
 /// </summary>
 public enum SfxType
 {
-    Coin = 0,       //È÷µç ¹öÆ° ¼Ò¸®
-    Flip = 1,       //Ä«µå µÚÁý´Â ¼Ò¸®
-    Match = 2,      //Ä«µå µÎ°³ ¸ÂÃèÀ» ¶§¿¡ ¼Ò¸®
+    Coin = 0,       //ížˆë“  ë²„íŠ¼ ì†Œë¦¬
+    Flip = 1,       //ì¹´ë“œ ë’¤ì§‘ëŠ” ì†Œë¦¬
+    Match = 2,      //ì¹´ë“œ ë‘ê°œ ë§žì·„ì„ ë•Œì— ì†Œë¦¬
 }

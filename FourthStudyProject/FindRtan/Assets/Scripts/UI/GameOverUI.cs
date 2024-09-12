@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameOverUI : MonoBehaviour
 {
-    public Image retryBtn;      //retry¹öÆ°
+    public Image retryBtn;      //retryë²„íŠ¼
 
     private void OnEnable()
     {
@@ -14,7 +14,7 @@ public class GameOverUI : MonoBehaviour
     }
 
     /// <summary>
-    /// dotween½ÇÇà ÇÔ¼ö(color.a)
+    /// dotweenì‹¤í–‰ í•¨ìˆ˜(color.a)
     /// </summary>
     private void StartDoTween()
     {

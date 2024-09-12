@@ -5,7 +5,7 @@ using UnityEngine;
 public class SettingUI : MonoBehaviour
 {
     /// <summary>
-    /// ¼¼ÆÃUI ´İ¾ÆÁÖ´Â ¹öÆ°
+    /// ì„¸íŒ…UI ë‹«ì•„ì£¼ëŠ” ë²„íŠ¼
     /// </summary>
     public void CloseBtn()
     {

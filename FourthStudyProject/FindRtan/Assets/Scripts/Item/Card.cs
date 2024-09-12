@@ -5,21 +5,21 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
-    private int idx = 0;            //³»Ä«µå ÀÎµ¦½º º¯¼ö
+    private int idx = 0;            //ë‚´ì¹´ë“œ ì¸ë±ìŠ¤ ë³€ìˆ˜
     public int Index                //idx getter
     {
         get { return idx; }
     }
 
-    public GameObject front;            //Ä«µå ¾Õ¸é obj
-    public SpriteRenderer frontImage;   //Ä«µå ¾Õ¸é ÀÌ¹ÌÁö
+    public GameObject front;            //ì¹´ë“œ ì•ë©´ obj
+    public SpriteRenderer frontImage;   //ì¹´ë“œ ì•ë©´ ì´ë¯¸ì§€
 
-    public GameObject back;             //Ä«µå µŞ¸é obj
+    public GameObject back;             //ì¹´ë“œ ë’·ë©´ obj
 
-    public Animator anim;               //Ä«µå anim
+    public Animator anim;               //ì¹´ë“œ anim
 
     /// <summary>
-    /// Ä«µå idx°ªÀ¸·Î ¼³Á¤ÇØÁÖ´Â ÇÔ¼ö
+    /// ì¹´ë“œ idxê°’ìœ¼ë¡œ ì„¤ì •í•´ì£¼ëŠ” í•¨ìˆ˜
     /// </summary>
     public void Setting(int number)
     {
@@ -28,7 +28,7 @@ public class Card : MonoBehaviour
     }
 
     /// <summary>
-    /// Ä«µå spriteNum °ªÀ¸·Î ¼³Á¤ÇØÁÖ´Â ÇÔ¼ö
+    /// ì¹´ë“œ spriteNum ê°’ìœ¼ë¡œ ì„¤ì •í•´ì£¼ëŠ” í•¨ìˆ˜
     /// </summary>
     public void Setting(int number, int spriteNum)
     {
@@ -37,7 +37,7 @@ public class Card : MonoBehaviour
     }
 
     /// <summary>
-    /// Ä«µå ¿ÀÇÂÇÏ´Â ÇÔ¼ö
+    /// ì¹´ë“œ ì˜¤í”ˆí•˜ëŠ” í•¨ìˆ˜
     /// </summary>
     public void OpenCard()
     {
@@ -61,7 +61,7 @@ public class Card : MonoBehaviour
     }
 
     /// <summary>
-    /// ¾Ö´Ï¸ŞÀÌ¼Ç ¼³Á¤ÇØÁÖ´Â ÇÔ¼ö
+    /// ì• ë‹ˆë©”ì´ì…˜ ì„¤ì •í•´ì£¼ëŠ” í•¨ìˆ˜
     /// </summary>
     public void StartAnim()
     {
@@ -69,7 +69,7 @@ public class Card : MonoBehaviour
     }
 
     /// <summary>
-    /// Invoke¸¦ ÀÌ¿ëÇØ Ä«µå ÆÄ±«µÇ´Â ÇÔ¼ö
+    /// Invokeë¥¼ ì´ìš©í•´ ì¹´ë“œ íŒŒê´´ë˜ëŠ” í•¨ìˆ˜
     /// </summary>
     public void DestoryCard()
     {
@@ -78,7 +78,7 @@ public class Card : MonoBehaviour
     }
 
     /// <summary>
-    /// Ä«µå ÆÄ±«ÇÏ´Â ÇÔ¼ö
+    /// ì¹´ë“œ íŒŒê´´í•˜ëŠ” í•¨ìˆ˜
     /// </summary>
     private void DestoryCardInvoke()
     {
@@ -86,7 +86,7 @@ public class Card : MonoBehaviour
     }
 
     /// <summary>
-    /// Invoke¸¦ ÀÌ¿ëÇØ Ä«µå µ¤¾îÁÖ´Â ÇÔ¼ö
+    /// Invokeë¥¼ ì´ìš©í•´ ì¹´ë“œ ë®ì–´ì£¼ëŠ” í•¨ìˆ˜
     /// </summary>
     public void CloseCard(bool isIvoke = true)
     {
@@ -97,7 +97,7 @@ public class Card : MonoBehaviour
     }
 
     /// <summary>
-    /// Ä«µå µ¤¾îÁÖ´Â ÇÔ¼ö
+    /// ì¹´ë“œ ë®ì–´ì£¼ëŠ” í•¨ìˆ˜
     /// </summary>
     public void CloseCardInvoke()
     {

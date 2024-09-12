@@ -8,20 +8,20 @@ public class StageManager : MonoBehaviour
 {
     public static StageManager Instance;
 
-    private List<Stage> stageList = new List<Stage>();  //¸ğµç Stage ´ã¾ÆµÎ´Â List
+    private List<Stage> stageList = new List<Stage>();  //ëª¨ë“  Stage ë‹´ì•„ë‘ëŠ” List
 
-    public int stageLevel = -1;                         //ÇöÀç ÇÃ·¹ÀÌÁßÀÎ ½ºÅ×ÀÌÁö ·¹º§ º¯¼ö
+    public int stageLevel = -1;                         //í˜„ì¬ í”Œë ˆì´ì¤‘ì¸ ìŠ¤í…Œì´ì§€ ë ˆë²¨ ë³€ìˆ˜
 
-    private int maxUnlockLevel = 1;                     //³»°¡ ÇØ±İÇÑ ÃÖ´ë·¹º§
+    private int maxUnlockLevel = 1;                     //ë‚´ê°€ í•´ê¸ˆí•œ ìµœëŒ€ë ˆë²¨
     public int MaxUnlockLevel                           //maxUnlockLevel getter
     {
         get { return maxUnlockLevel; }
     }
 
-    private string keyCode = "Rtan";                    //PlayerPrefs ÀúÀå keyCode
+    private string keyCode = "Rtan";                    //PlayerPrefs ì €ì¥ keyCode
 
     /// <summary>
-    /// StageManager»ı¼º½ÃÄÑÁÖ´Â ÇÔ¼ö
+    /// StageManagerìƒì„±ì‹œì¼œì£¼ëŠ” í•¨ìˆ˜
     /// </summary>
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void init()
@@ -40,7 +40,7 @@ public class StageManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ½ºÅ×ÀÌÁö ¼³Á¤ÇØÁÖ´Â ÇÔ¼ö
+    /// ìŠ¤í…Œì´ì§€ ì„¤ì •í•´ì£¼ëŠ” í•¨ìˆ˜
     /// </summary>
     public void SetStage()
     {
@@ -92,7 +92,7 @@ public class StageManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ³»°¡ ÇÃ·¹ÀÌÇÑ levelÀÌ ÃÖ°í·¹º§ÀÎÁö Ã¼Å©, ¹İÈ¯ÇØÁÖ´Â ÇÔ¼ö
+    /// ë‚´ê°€ í”Œë ˆì´í•œ levelì´ ìµœê³ ë ˆë²¨ì¸ì§€ ì²´í¬, ë°˜í™˜í•´ì£¼ëŠ” í•¨ìˆ˜
     /// </summary>
     /// <returns></returns>
     public bool IsMyLevelHighest()
@@ -105,7 +105,7 @@ public class StageManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ÀúÀåµÇ¾î ÀÖ´Â ³» ÃÖ°í ÇØ±İ °ª ¼³Á¤ÇØÁÖ´Â ÇÔ¼ö
+    /// ì €ì¥ë˜ì–´ ìˆëŠ” ë‚´ ìµœê³  í•´ê¸ˆ ê°’ ì„¤ì •í•´ì£¼ëŠ” í•¨ìˆ˜
     /// </summary>
     public void SetHighLevelData()
     {
@@ -114,7 +114,7 @@ public class StageManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ÀúÀåµÇ¾î ÀÖ´Â ³» ÃÖ°í ÇØ±İ °ª °¡Á®¿À´Â ÇÔ¼ö
+    /// ì €ì¥ë˜ì–´ ìˆëŠ” ë‚´ ìµœê³  í•´ê¸ˆ ê°’ ê°€ì ¸ì˜¤ëŠ” í•¨ìˆ˜
     /// </summary>
     private void GetHighLevelData()
     {
@@ -128,7 +128,7 @@ public class StageManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ½ºÅ×ÀÌÁö °ª ¼³Á¤ ÇÔ¼ö(DB³ª ½ºÇÁ·¹µå½ÃÆ®·Î º¯È¯)
+    /// ìŠ¤í…Œì´ì§€ ê°’ ì„¤ì • í•¨ìˆ˜(DBë‚˜ ìŠ¤í”„ë ˆë“œì‹œíŠ¸ë¡œ ë³€í™˜)
     /// </summary>
     public void AddStages()
     {
@@ -154,7 +154,7 @@ public class StageManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ½ºÅ×ÀÌÁö »ı¼ºÇÏ´Â ÇÔ¼ö
+    /// ìŠ¤í…Œì´ì§€ ìƒì„±í•˜ëŠ” í•¨ìˆ˜
     /// </summary>
     public void AddStage(int level, int cardMax, float Time, BossType type = BossType.None)
     {
@@ -170,7 +170,7 @@ public class StageManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ½ºÅ×ÀÌÁö ¹İÈ¯ÇØÁÖ´Â ÇÔ¼ö
+    /// ìŠ¤í…Œì´ì§€ ë°˜í™˜í•´ì£¼ëŠ” í•¨ìˆ˜
     /// </summary>
     public Stage GetStage()
     {

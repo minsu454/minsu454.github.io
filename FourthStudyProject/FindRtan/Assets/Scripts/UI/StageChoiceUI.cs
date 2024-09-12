@@ -6,7 +6,7 @@ using UnityEngine;
 public class StageChoiceUI : MonoBehaviour
 {
     public GameObject hiddenUI;         //hiddenUI
-    public GameObject hiddenMissionGo;  //È÷µçUI·Î °¡±âÀ§ÇÑ ¹Ì¼Ç ÃÑ°ı ¿ÀºêÁ§Æ®
+    public GameObject hiddenMissionGo;  //íˆë“ UIë¡œ ê°€ê¸°ìœ„í•œ ë¯¸ì…˜ ì´ê´„ ì˜¤ë¸Œì íŠ¸
 
     public Animator StageChoiceAnim;
 
@@ -33,7 +33,7 @@ public class StageChoiceUI : MonoBehaviour
     }
 
     /// <summary>
-    /// HiddenstageUI -> stageChoiceUI ÀüÈ¯ ¾Ö´Ï¸ŞÀÌ¼Ç ÇÔ¼ö
+    /// HiddenstageUI -> stageChoiceUI ì „í™˜ ì• ë‹ˆë©”ì´ì…˜ í•¨ìˆ˜
     /// </summary>
     public void PlayAnim()
     {
@@ -45,7 +45,7 @@ public class StageChoiceUI : MonoBehaviour
     }
 
     /// <summary>
-    /// º¯È¯ ¿Ï·áµÈ ÇÔ¼ö
+    /// ë³€í™˜ ì™„ë£Œëœ í•¨ìˆ˜
     /// </summary>
     public void AnimOnComplete()
     {
@@ -57,7 +57,7 @@ public class StageChoiceUI : MonoBehaviour
     }
 
     /// <summary>
-    /// È÷µç¹æ °¡±âÀ§ÇÑ ÀÔ·Â ¹öÆ°
+    /// íˆë“ ë°© ê°€ê¸°ìœ„í•œ ì…ë ¥ ë²„íŠ¼
     /// </summary>
     public void HiddenStageKey(GameObject go)
     {
@@ -71,7 +71,7 @@ public class StageChoiceUI : MonoBehaviour
     }
 
     /// <summary>
-    /// ±âº»½ºÅ×ÀÌÁö Àü¿ø Å¬¸®¾îÇßÀ¸¸é hidden¹öÆ° È°¼ºÈ­ ½ÃÄÑÁÖ´Â ÇÔ¼ö
+    /// ê¸°ë³¸ìŠ¤í…Œì´ì§€ ì „ì› í´ë¦¬ì–´í–ˆìœ¼ë©´ hiddenë²„íŠ¼ í™œì„±í™” ì‹œì¼œì£¼ëŠ” í•¨ìˆ˜
     /// </summary>
     public void IsGoalAchieved()
     {
@@ -82,7 +82,7 @@ public class StageChoiceUI : MonoBehaviour
     }
 
     /// <summary>
-    /// ³»°¡ ÇØ±İÇÑ ÃÖ´ë·¹º§¿¡ ¸Â°Ô UI ¼¼ÆÃÇØÁÖ´Â ÇÔ¼ö
+    /// ë‚´ê°€ í•´ê¸ˆí•œ ìµœëŒ€ë ˆë²¨ì— ë§ê²Œ UI ì„¸íŒ…í•´ì£¼ëŠ” í•¨ìˆ˜
     /// </summary>
     public void StageChoiceLockUI()
     {

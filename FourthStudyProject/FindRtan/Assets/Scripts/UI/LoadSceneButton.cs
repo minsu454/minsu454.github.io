@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class LoadSceneButton : MonoBehaviour
 {
     /// <summary>
-    /// LoadSceneÇØÁÖ´Â ÇÔ¼ö
+    /// LoadSceneí•´ì£¼ëŠ” í•¨ìˆ˜
     /// </summary>
     public void LoadScene(string name)
     {
@@ -14,7 +14,7 @@ public class LoadSceneButton : MonoBehaviour
     }
 
     /// <summary>
-    /// LoadSceneÇØÁÖ´Â ÇÔ¼ö(ÇöÀç ³»°¡ ¼±ÅÃÇÑ stage ÀúÀå)
+    /// LoadSceneí•´ì£¼ëŠ” í•¨ìˆ˜(í˜„ì¬ ë‚´ê°€ ì„ íƒí•œ stage ì €ì¥)
     /// </summary>
     public void LoadScene(int value)
     {
@@ -24,7 +24,7 @@ public class LoadSceneButton : MonoBehaviour
     }
 
     /// <summary>
-    /// ÇÃ·¹ÀÌ ÁßÀÎ ·¹º§¿¡ ´ÙÀ½·¹º§·Î ³Ñ¾î°¡´Â ÇÔ¼ö
+    /// í”Œë ˆì´ ì¤‘ì¸ ë ˆë²¨ì— ë‹¤ìŒë ˆë²¨ë¡œ ë„˜ì–´ê°€ëŠ” í•¨ìˆ˜
     /// </summary>
     public void NextLevelLoadScene()
     {

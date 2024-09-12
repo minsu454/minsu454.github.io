@@ -1,8 +1,10 @@
 using UnityEngine;
 using UnityEngine.Advertisements;
 
-public class AdsInitialize : MonoBehaviour, IUnityAdsInitializationListener
+public class AdsInitialize : MonoBehaviour, IUnityAdsInitializationListener, IUnityAdsShowListener
 {
+    public static AdsInitialize Instance;
+
     [SerializeField] string _androidGameId;
     [SerializeField] string _iOSGameId;
     [SerializeField] bool _testMode = true;
@@ -10,6 +12,8 @@ public class AdsInitialize : MonoBehaviour, IUnityAdsInitializationListener
 
     void Awake()
     {
+        Instance = this;
+
         InitializeAds();
     }
 
@@ -37,5 +41,35 @@ public class AdsInitialize : MonoBehaviour, IUnityAdsInitializationListener
     public void OnInitializationFailed(UnityAdsInitializationError error, string message)
     {
         Debug.Log($"Unity Ads Initialization Failed: {error.ToString()} - {message}");
+    }
+
+    /// <summary>
+    /// 광고 보여주기
+    /// </summary>
+    public void ShowAd()
+    {
+        // Then show the ad:
+        Advertisement.Show("Rewarded_Android", this);
+    }
+
+    public void OnUnityAdsShowComplete(string adUnitId, UnityAdsShowCompletionState showCompletionState)
+    {
+        if (adUnitId.Equals(adUnitId) && showCompletionState.Equals(UnityAdsShowCompletionState.COMPLETED))
+        {
+            Debug.Log("Unity Ads Rewarded Ad Completed");
+            // Grant a reward.
+
+            GameManager.Instance.GameClear();
+        }
+    }
+
+    public void OnUnityAdsShowFailure(string adUnitId, UnityAdsShowError error, string message) {}
+
+    public void OnUnityAdsShowStart(string adUnitId) { }
+    public void OnUnityAdsShowClick(string adUnitId) { }
+
+    private void OnDestroy()
+    {
+        Instance = null;
     }
 }

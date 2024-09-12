@@ -9,14 +9,14 @@ public class TimeManager : MonoBehaviour
 {
     public static TimeManager Instance;
 
-    public Text timeTxt;            //½Ã°£UI
-    private float time = 0f;        //³²Àº½Ã°£ º¯¼ö
+    public Text timeTxt;            //ì‹œê°„UI
+    private float time = 0f;        //ë‚¨ì€ì‹œê°„ ë³€ìˆ˜
 
-    public bool isStart = false;        //°ÔÀÓ ½ÃÀÛÀÎÁö ¾Ë·ÁÁÖ´Â º¯¼ö
+    public bool isStart = false;        //ê²Œì„ ì‹œì‘ì¸ì§€ ì•Œë ¤ì£¼ëŠ” ë³€ìˆ˜
 
-    private bool isShuffle;             //¼ÅÇÃÇÏ´ÂÁö ³ªÅ¸³»ÁÖ´Â º¯¼ö
-    private float curCheckTime = 10f;   //¼ÅÇÃ ½Ã°£ Ã¼Å©½Ã »ç¿ëÇÏ´Â ÇöÀç ³²Àº ½Ã°£ º¯¼ö
-    private float maxcheckTime = 10f;   //¼ÅÇÃ ½Ã°£ Ã¼Å©½Ã ÇöÀç ³²Àº ½Ã°£ ÃÊ±âÈ­¿ë º¯¼ö
+    private bool isShuffle;             //ì…”í”Œí•˜ëŠ”ì§€ ë‚˜íƒ€ë‚´ì£¼ëŠ” ë³€ìˆ˜
+    private float curCheckTime = 10f;   //ì…”í”Œ ì‹œê°„ ì²´í¬ì‹œ ì‚¬ìš©í•˜ëŠ” í˜„ì¬ ë‚¨ì€ ì‹œê°„ ë³€ìˆ˜
+    private float maxcheckTime = 10f;   //ì…”í”Œ ì‹œê°„ ì²´í¬ì‹œ í˜„ì¬ ë‚¨ì€ ì‹œê°„ ì´ˆê¸°í™”ìš© ë³€ìˆ˜
 
     private void Awake()
     {
@@ -32,7 +32,7 @@ public class TimeManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ½Ã°£ Ã¼Å© ÇÔ¼ö
+    /// ì‹œê°„ ì²´í¬ í•¨ìˆ˜
     /// </summary>
     private void CheckTime()
     {
@@ -64,7 +64,7 @@ public class TimeManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ½ÃÀÛ Àü¿¡ ½Ã°£ ¹× ¼ÅÇÃ ¼³Á¤ÇØÁÖ´Â ÇÔ¼ö
+    /// ì‹œì‘ ì „ì— ì‹œê°„ ë° ì…”í”Œ ì„¤ì •í•´ì£¼ëŠ” í•¨ìˆ˜
     /// </summary>
     public void SetTime(float time, bool isShuffle = false)
     {

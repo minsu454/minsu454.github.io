@@ -1,12 +1,12 @@
 /// <summary>
-/// ½ºÅ×ÀÌÁö ±¸¼º class
+/// ìŠ¤í…Œì´ì§€ êµ¬ì„± class
 /// </summary>
 public class Stage
 {
-    public int level;       //ÇöÀç ·¹º§
-    public int cardMax;     //Ä«µå Àå¼ö
-    public float time;      //ÇÃ·¹ÀÌ Å¸ÀÓ
-    public BossType type;   //º¸½ºÀÎÁö ¾Æ´ÑÁö È®ÀÎ ½ÃÄÑÁÖ´Â enum
+    public int level;       //í˜„ì¬ ë ˆë²¨
+    public int cardMax;     //ì¹´ë“œ ì¥ìˆ˜
+    public float time;      //í”Œë ˆì´ íƒ€ì„
+    public BossType type;   //ë³´ìŠ¤ì¸ì§€ ì•„ë‹Œì§€ í™•ì¸ ì‹œì¼œì£¼ëŠ” enum
 
     public Stage(int level, int cardMax, float Time, BossType type = BossType.None)
     {

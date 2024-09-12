@@ -5,7 +5,7 @@ using UnityEngine;
 public class PauseButton : MonoBehaviour
 {
     /// <summary>
-    /// Pause¹öÆ° ÇÔ¼ö
+    /// Pauseë²„íŠ¼ í•¨ìˆ˜
     /// </summary>
     public void PauseBtn()
     {

@@ -11,14 +11,14 @@ public class SoundManager : MonoBehaviour
         get { return instance; }
     }
 
-    public AudioSource sfxSource;       //sfxÀü¿ë ¿Àµğ¿À º¯¼ö
-    public AudioSource bgmSource;       //bgmÀü¿ë ¿Àµğ¿À º¯¼ö
+    public AudioSource sfxSource;       //sfxì „ìš© ì˜¤ë””ì˜¤ ë³€ìˆ˜
+    public AudioSource bgmSource;       //bgmì „ìš© ì˜¤ë””ì˜¤ ë³€ìˆ˜
 
-    private Dictionary<SfxType, AudioClip> sfxClipDic = new Dictionary<SfxType, AudioClip>();       //sfxÅ¬¸³ ÀúÀåÇØ³õ´Â Dic
-    private Dictionary<BgmType, AudioClip> bgmClipDic = new Dictionary<BgmType, AudioClip>();       //bgmÅ¬¸³ ÀúÀåÇØ³õ´Â Dic
+    private Dictionary<SfxType, AudioClip> sfxClipDic = new Dictionary<SfxType, AudioClip>();       //sfxí´ë¦½ ì €ì¥í•´ë†“ëŠ” Dic
+    private Dictionary<BgmType, AudioClip> bgmClipDic = new Dictionary<BgmType, AudioClip>();       //bgmí´ë¦½ ì €ì¥í•´ë†“ëŠ” Dic
 
     /// <summary>
-    /// SFX Àç»ı ÇÔ¼ö
+    /// SFX ì¬ìƒ í•¨ìˆ˜
     /// </summary>
     public void PlaySFX(SfxType type)
     {
@@ -26,7 +26,7 @@ public class SoundManager : MonoBehaviour
     }
 
     /// <summary>
-    /// BGM Àç»ı ÇÔ¼ö
+    /// BGM ì¬ìƒ í•¨ìˆ˜
     /// </summary>
     public void PlayBGM(BgmType type)
     {
@@ -38,7 +38,7 @@ public class SoundManager : MonoBehaviour
     }
 
     /// <summary>
-    /// SoundManager »ı¼º ÇÔ¼ö
+    /// SoundManager ìƒì„± í•¨ìˆ˜
     /// </summary>
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static void Init()
@@ -69,7 +69,7 @@ public class SoundManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Å¬¸³ ÀĞ¾îÁÖ´Â ÇÔ¼ö
+    /// í´ë¦½ ì½ì–´ì£¼ëŠ” í•¨ìˆ˜
     /// </summary>
     public void ClipLoader<T>(ref Dictionary<T, AudioClip> dic, AudioClip[] arr) where T : Enum
     {

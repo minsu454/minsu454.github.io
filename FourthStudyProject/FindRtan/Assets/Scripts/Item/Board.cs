@@ -8,18 +8,18 @@ using DG.Tweening.Core.Easing;
 
 public class Board : MonoBehaviour
 {
-    public GameObject cardPrefab;                                   //Ä«µå ÇÁ¸®ÆÕ
+    public GameObject cardPrefab;                                   //ì¹´ë“œ í”„ë¦¬íŒ¹
 
-    private List<GameObject> cardList = new List<GameObject>();     //°ÔÀÓÁß ¾²ÀÌ´Â Ä«µåµé ¸ğ¾Æ³õ´Â List
+    private List<GameObject> cardList = new List<GameObject>();     //ê²Œì„ì¤‘ ì“°ì´ëŠ” ì¹´ë“œë“¤ ëª¨ì•„ë†“ëŠ” List
 
-    public int cardCount = 0;                                       //³²Àº Ä«µå Àû¾îÁÖ´Â ÇÔ¼ö
+    public int cardCount = 0;                                       //ë‚¨ì€ ì¹´ë“œ ì ì–´ì£¼ëŠ” í•¨ìˆ˜
 
     [Header("Card")]
-    public Card firstCard;                                          //Ã¹¹øÂ° µÚÁıÀº Ä«µå ÀúÀåÇÏ´Â º¯¼ö
-    public Card secondCard;                                         //µÎ¹øÂ° µÚÁıÀº Ä«µå ÀúÀåÇÏ´Â º¯¼ö
+    public Card firstCard;                                          //ì²«ë²ˆì§¸ ë’¤ì§‘ì€ ì¹´ë“œ ì €ì¥í•˜ëŠ” ë³€ìˆ˜
+    public Card secondCard;                                         //ë‘ë²ˆì§¸ ë’¤ì§‘ì€ ì¹´ë“œ ì €ì¥í•˜ëŠ” ë³€ìˆ˜
 
     /// <summary>
-    /// °ÔÀÓ¼³Á¤ÇØÁÖ°í ½ÃÀÛÇØÁÖ´Â ÇÔ¼ö
+    /// ê²Œì„ì„¤ì •í•´ì£¼ê³  ì‹œì‘í•´ì£¼ëŠ” í•¨ìˆ˜
     /// </summary>
     public void StartGame(BossType type = BossType.None)
     {
@@ -59,7 +59,7 @@ public class Board : MonoBehaviour
     }
 
     /// <summary>
-    /// Ä«µå Á¤·ÄµÇ´Â ÇÔ¼ö
+    /// ì¹´ë“œ ì •ë ¬ë˜ëŠ” í•¨ìˆ˜
     /// </summary>
     private void MoveCard()
     {
@@ -90,7 +90,7 @@ public class Board : MonoBehaviour
     }
 
     /// <summary>
-    /// Ä«µå À§Ä¡ °è»êÇÏ°í ¹İÈ¯ÇØÁÖ´Â ÇÔ¼ö
+    /// ì¹´ë“œ ìœ„ì¹˜ ê³„ì‚°í•˜ê³  ë°˜í™˜í•´ì£¼ëŠ” í•¨ìˆ˜
     /// </summary>
     private Vector2 CardVec(int num, int divided, float moveX, float moveY)
     {
@@ -104,7 +104,7 @@ public class Board : MonoBehaviour
     }
 
     /// <summary>
-    /// Ä«µå ¼ÅÇÃÇÏ´Â ÇÔ¼ö
+    /// ì¹´ë“œ ì…”í”Œí•˜ëŠ” í•¨ìˆ˜
     /// </summary>
     public void ShuffleCard()
     {
@@ -112,7 +112,7 @@ public class Board : MonoBehaviour
     }
 
     /// <summary>
-    /// Ä«µå ¼ÅÇÃÇÏ´Â ÄÚ·çÆ¾
+    /// ì¹´ë“œ ì…”í”Œí•˜ëŠ” ì½”ë£¨í‹´
     /// </summary>
     private IEnumerator CoShuffleCard()
     {
@@ -137,7 +137,7 @@ public class Board : MonoBehaviour
     }
 
     /// <summary>
-    /// µÚÁıÀº Ä«µå ºñ±³ÇØÁÖ´Â ÇÔ¼ö
+    /// ë’¤ì§‘ì€ ì¹´ë“œ ë¹„êµí•´ì£¼ëŠ” í•¨ìˆ˜
     /// </summary>
     public void Matched()
     {
@@ -151,7 +151,7 @@ public class Board : MonoBehaviour
 
             if (cardCount == 0)
             {
-                GameManager.Instance.GameClear();
+                AdsInitialize.Instance.ShowAd();
             }
         }
         else
@@ -165,7 +165,7 @@ public class Board : MonoBehaviour
     }
 
     /// <summary>
-    /// Ä«µå list¿¡¼­ Áö¿öÁÖ´Â ÇÔ¼ö
+    /// ì¹´ë“œ listì—ì„œ ì§€ì›Œì£¼ëŠ” í•¨ìˆ˜
     /// </summary>
     internal void RemoveCardGo(GameObject card)
     {

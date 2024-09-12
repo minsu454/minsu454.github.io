@@ -6,7 +6,7 @@ using UnityEditor;
 public class ResetPlayerPrefs
 {
     /// <summary>
-    /// PlayerPrefsÃÊ±âÈ­ ÇÔ¼ö
+    /// PlayerPrefsì´ˆê¸°í™” í•¨ìˆ˜
     /// </summary>
     [MenuItem("Tools/PlayerPrefs/Reset")]
     private static void Reset()
@@ -16,7 +16,7 @@ public class ResetPlayerPrefs
     }
 
     /// <summary>
-    /// º¸½º x±îÁö ½ºÅµ½ÃÄÑÁÖ´Â ÇÔ¼ö
+    /// ë³´ìŠ¤ xê¹Œì§€ ìŠ¤í‚µì‹œì¼œì£¼ëŠ” í•¨ìˆ˜
     /// </summary>
     [MenuItem("Tools/PlayerPrefs/Skip/GoToX")]
     private static void SkipX()
@@ -26,7 +26,7 @@ public class ResetPlayerPrefs
     }
 
     /// <summary>
-    /// º¸½º y±îÁö ½ºÅµ½ÃÄÑÁÖ´Â ÇÔ¼ö
+    /// ë³´ìŠ¤ yê¹Œì§€ ìŠ¤í‚µì‹œì¼œì£¼ëŠ” í•¨ìˆ˜
     /// </summary>
     [MenuItem("Tools/PlayerPrefs/Skip/GoToY")]
     private static void SkipY()
@@ -36,7 +36,7 @@ public class ResetPlayerPrefs
     }
 
     /// <summary>
-    /// º¸½º z±îÁö ½ºÅµ½ÃÄÑÁÖ´Â ÇÔ¼ö
+    /// ë³´ìŠ¤ zê¹Œì§€ ìŠ¤í‚µì‹œì¼œì£¼ëŠ” í•¨ìˆ˜
     /// </summary>
     [MenuItem("Tools/PlayerPrefs/Skip/GoToZ")]
     private static void SkipZ()
@@ -46,7 +46,7 @@ public class ResetPlayerPrefs
     }
 
     /// <summary>
-    /// ¸ğµÎ Å¬¸®¾î ÇÔ¼ö
+    /// ëª¨ë‘ í´ë¦¬ì–´ í•¨ìˆ˜
     /// </summary>
     [MenuItem("Tools/PlayerPrefs/StageAllClear")]
     private static void StageAllClear()

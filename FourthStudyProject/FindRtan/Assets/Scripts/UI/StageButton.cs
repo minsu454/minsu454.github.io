@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class StageButton : MonoBehaviour
 {
-    public GameObject lockGo;       //ÀÚ¹°¼è ÀÌ¹ÌÁö obj
-    public GameObject btnGo;        //½ÇÁúÀûÀÎ ¹öÆ° obj
+    public GameObject lockGo;       //ìë¬¼ì‡  ì´ë¯¸ì§€ obj
+    public GameObject btnGo;        //ì‹¤ì§ˆì ì¸ ë²„íŠ¼ obj
 
     /// <summary>
-    /// Àá±İ ÇØÁ¦ ¼³Á¤ ÇÔ¼ö
+    /// ì ê¸ˆ í•´ì œ ì„¤ì • í•¨ìˆ˜
     /// </summary>
     public void SetUnlock(bool value)
     {

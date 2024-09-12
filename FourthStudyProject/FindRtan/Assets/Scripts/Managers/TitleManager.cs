@@ -11,8 +11,8 @@ public class TitleManager : MonoBehaviour
     public GameObject titleUI;          //titleUI
     public StageChoiceUI stageChoiceUI; //stageChoiceUI
 
-    public Animator rtan1Anim;          //·¹Åº1 ¾Ö´Ï¸ŞÀÌ¼Ç ÀúÀå
-    public Animator rtan2Anim;          //·¹Åº2 ¾Ö´Ï¸ŞÀÌ¼Ç ÀúÀå
+    public Animator rtan1Anim;          //ë ˆíƒ„1 ì• ë‹ˆë©”ì´ì…˜ ì €ì¥
+    public Animator rtan2Anim;          //ë ˆíƒ„2 ì• ë‹ˆë©”ì´ì…˜ ì €ì¥
 
     private void Awake()
     {
@@ -27,7 +27,7 @@ public class TitleManager : MonoBehaviour
     }
 
     /// <summary>
-    /// titleUI <-> stageChoiceUI È­¸éº¯È¯ ½ÃÄÑÁÖ´Â ¹öÆ°
+    /// titleUI <-> stageChoiceUI í™”ë©´ë³€í™˜ ì‹œì¼œì£¼ëŠ” ë²„íŠ¼
     /// </summary>
     public void ChangeUIBtn(bool showTitle)
     {
@@ -42,7 +42,7 @@ public class TitleManager : MonoBehaviour
     }
 
     /// <summary>
-    /// titleUI <-> stageChoiceUI È­¸éº¯È¯ ½ÃÄÑÁÖ´Â ÇÔ¼ö
+    /// titleUI <-> stageChoiceUI í™”ë©´ë³€í™˜ ì‹œì¼œì£¼ëŠ” í•¨ìˆ˜
     /// </summary>
     public void StartSceneUI(bool active)
     {

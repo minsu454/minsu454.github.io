@@ -5,7 +5,7 @@ using UnityEngine;
 public class HiddenStageChoiceUI : MonoBehaviour
 {
     public GameObject stageChoiceUI;        //stageChoiceUI
-    public GameObject balls;                //¾Æ·¡¿òÁ÷ÀÌ´Â ballµé ¹­¾î³í obj
+    public GameObject balls;                //ì•„ë˜ì›€ì§ì´ëŠ” ballë“¤ ë¬¶ì–´ë…¼ obj
 
     public Animator HiddenUIAnim;           //UI Anim
 
@@ -15,7 +15,7 @@ public class HiddenStageChoiceUI : MonoBehaviour
     }
 
     /// <summary>
-    /// HiddenstageUI -> stageChoiceUI ÀüÈ¯ ¾Ö´Ï¸ŞÀÌ¼Ç ÇÔ¼ö
+    /// HiddenstageUI -> stageChoiceUI ì „í™˜ ì• ë‹ˆë©”ì´ì…˜ í•¨ìˆ˜
     /// </summary>
     public void PlayAnim()
     {
@@ -27,7 +27,7 @@ public class HiddenStageChoiceUI : MonoBehaviour
     }
 
     /// <summary>
-    /// º¯È¯¿Ï·áµÈ ÇÔ¼ö
+    /// ë³€í™˜ì™„ë£Œëœ í•¨ìˆ˜
     /// </summary>
     public void AnimOnComplete()
     {

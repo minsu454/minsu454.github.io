@@ -5,7 +5,7 @@ using UnityEngine;
 public class RtanOnComplete : MonoBehaviour
 {
     /// <summary>
-    /// Rtan1 ¾Ö´Ï¸ŞÀÌ¼Ç ¿Ï·á½Ã È£ÃâÇÏ´Â ÇÔ¼ö
+    /// Rtan1 ì• ë‹ˆë©”ì´ì…˜ ì™„ë£Œì‹œ í˜¸ì¶œí•˜ëŠ” í•¨ìˆ˜
     /// </summary>
     public void Rtan1AnimOnComplete()
     {
@@ -14,7 +14,7 @@ public class RtanOnComplete : MonoBehaviour
     }
 
     /// <summary>
-    /// Rtan2 ¾Ö´Ï¸ŞÀÌ¼Ç ¿Ï·á½Ã È£ÃâÇÏ´Â ÇÔ¼ö
+    /// Rtan2 ì• ë‹ˆë©”ì´ì…˜ ì™„ë£Œì‹œ í˜¸ì¶œí•˜ëŠ” í•¨ìˆ˜
     /// </summary>
     public void Rtan2ANimOnComplete()
     {
