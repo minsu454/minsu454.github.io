@@ -91,7 +91,8 @@ public class Card : MonoBehaviour
     public void CloseCard(bool isIvoke = true)
     {
         if (isIvoke)
-            Invoke(nameof(CloseCardInvoke), 0.3f);
+            Invoke("CloseCardInvoke", 0.3f);
+        
         else
             CloseCardInvoke();
     }
