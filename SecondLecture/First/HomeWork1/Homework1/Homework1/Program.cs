@@ -10,37 +10,43 @@ namespace Homework1
         /// </summary>
         //static void Main(string[] args)
         //{
+
+        //    Console.Write("이름을 입력하세요: ");
         //    string name = Console.ReadLine()!;
+
+        //    Console.Write("나이를 입력하세요: ");
         //    string age = Console.ReadLine()!;
-        //    Console.WriteLine($"name :{name}, age : {age}");
+        //    Console.WriteLine($"안녕하세요, {name}! 당신은 {age} 세 이군요.");
         //}
 
         /// <summary>
         /// 간단한 사칙연산 계산기 만들기
         /// </summary>
-        //        static void Main(string[] args)
-        //        {
-        //            string[] inputArr = Console.ReadLine()!.Split(' ');
-        //            int[] intArr = Array.ConvertAll(inputArr, int.Parse);
+        //static void Main(string[] args)
+        //{
+        //    int num1 = 0, num2 = 0;
+        //    Console.Write($"첫번째 수를 입력하세요: ");
+        //    int.TryParse(Console.ReadLine(), out num1);
+        //    Console.Write($"두번째 수를 입력하세요: ");
+        //    int.TryParse(Console.ReadLine(), out num2);
 
-        //            Console.WriteLine
-        //($@"{intArr[0]} + {intArr[1]} = {intArr[0] + intArr[1]}
-        //{intArr[0]} - {intArr[1]} = {intArr[0] - intArr[1]}
-        //{intArr[0]} * {intArr[1]} = {intArr[0] * intArr[1]}
-        //{intArr[0]} / {intArr[1]} = {intArr[0] / intArr[1]}
-        //{intArr[0]} % {intArr[1]} = {intArr[0] % intArr[1]}
-        //");
-        //        }
+
+        //    Console.WriteLine($"더하기: {num1 + num2}");
+        //    Console.WriteLine($"빼기: {num1 - num2}");
+        //    Console.WriteLine($"곱하기: {num1 * num2}");
+        //    Console.WriteLine($"나누기: {num1 / num2}");
+        //}
 
         /// <summary>
         /// 온도 변환기 만들기
         /// </summary>
         //static void Main(string[] args)
         //{
+        //    Console.Write("섭씨 온도를 입력하세요: ");
         //    string input = Console.ReadLine()!;
         //    int num = int.Parse(input);
-
-        //    Console.WriteLine(((float)num * 9 / 5) + 32);
+            
+        //    Console.WriteLine($"변환된 화씨 온도: {((float)num * 9 / 5) + 32}");
         //}
 
 
