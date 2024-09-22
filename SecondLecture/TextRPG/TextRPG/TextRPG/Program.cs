@@ -1,10 +1,17 @@
 ﻿namespace TextRPG
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            GameManager.Init();
+
+            while (GameManager.isRun)
+            {
+                GameManager.Update();
+            }
+
+            GameManager.Destroy();
         }
     }
 }
