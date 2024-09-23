@@ -2,9 +2,12 @@
 {
     public static class SceneFactory
     {
-        public static BaseScene CreateScene(SceneType type)
+        /// <summary>
+        /// 씬 생성자 리턴해주는 함수
+        /// </summary>
+        public static BaseScene? CreateScene(SceneType type)
         {
-            BaseScene scene;
+            BaseScene? scene = null;
             switch (type)
             {
                 case SceneType.Start:
@@ -23,7 +26,7 @@
                     scene = new StoreScene();
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException($"Scene is {type}");
+                    break;
             }
             return scene;
         }

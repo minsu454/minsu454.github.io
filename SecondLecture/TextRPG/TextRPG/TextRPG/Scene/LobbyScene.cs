@@ -1,13 +1,20 @@
 ﻿namespace TextRPG
 {
-    public class LobbyScene : BaseScene
+    public class LobbyScene : BaseScene, IMainScene
     {
+        private int shiftCount;
+
+        protected override void Init()
+        {
+            shiftCount = 1;
+        }
+
         public override void Load()
         {
             Print.PrintScreen(lobbyFormat);
             int input = Input.InputKey(3);
 
-
+            GameManager.Scene.OpenScene((SceneType)(1 << input + shiftCount));
         }
 
         #region PrintFormat

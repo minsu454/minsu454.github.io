@@ -2,8 +2,10 @@
 
 namespace TextRPG
 {
-    public class StartScene : BaseScene
+    public class StartScene : BaseScene, IMainScene
     {
+        private int shiftCount = 0;
+
         public override void Load()
         {
             string name = InputName();
@@ -15,7 +17,7 @@ namespace TextRPG
 
             GameManager.player = new Player(name, JobFactory.CreateInfo(job));
 
-            GameManager.scene.NextScene(SceneType.Lobby);
+            GameManager.Scene.OpenScene(SceneType.Lobby);
         }
 
         #region PrintFormat
@@ -39,6 +41,9 @@ namespace TextRPG
 
 ";
 
+        /// <summary>
+        /// 이름 입력하는 함수
+        /// </summary>
         private string InputName()
         {
             string name;
@@ -71,6 +76,9 @@ namespace TextRPG
             return name;
         }
 
+        /// <summary>
+        /// 직업 설정 스크린 함수
+        /// </summary>
         private void JobPrintScreen()
         {
             StringBuilder sb = new StringBuilder();

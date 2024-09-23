@@ -4,19 +4,21 @@
     {
         public static bool isRun = true;
 
-        public static SceneManager scene = new SceneManager();
+        public static SceneManager Scene = new SceneManager();
+        public static ItemManager Item = new ItemManager();
 
         public static Player? player;
 
         public static void Init()
         {
             isRun = true;
-            scene.Init();
+            Scene.Init();
+            Item.Init();
         }
 
         public static void Update()
         {
-            scene.LoadScene();
+            Scene.LoadScene();
 
             Console.Clear();
             Thread.Sleep(100);
