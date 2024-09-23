@@ -7,8 +7,8 @@
 
         public BaseInfo info;       //플레이어 기본 정보
 
-        public List<ItemType> getItemList = new List<ItemType>();
-        public List<ItemType> equipItemList = new List<ItemType>();
+        public List<ItemType> getItemList = new List<ItemType>();       //가지고 있는 아이템 리스트
+        public List<ItemType> equipItemList = new List<ItemType>();     //장착하고 있는 아이템 리스트
 
         public Player(string name, BaseInfo info)
         {
@@ -27,6 +27,9 @@
             this.info = info;
         }
 
+        /// <summary>
+        /// 장착아이템 스텟 세팅해주는 함수
+        /// </summary>
         public void SetItemStat()
         {
             info.itemAttack = 0;
@@ -43,6 +46,9 @@
             }
         }
 
+        /// <summary>
+        /// 체력 리셋시켜주는 함수
+        /// </summary>
         public void ResetHp()
         {
             info.curHp = info.maxHp;
