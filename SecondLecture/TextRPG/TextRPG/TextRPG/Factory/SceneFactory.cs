@@ -25,6 +25,12 @@
                 case SceneType.Store:
                     scene = new StoreScene();
                     break;
+                case SceneType.Dungeon:
+                    scene = new DungeonScene();
+                    break;
+                case SceneType.Rest:
+                    scene = new RestScene();
+                    break;
                 default:
                     break;
             }

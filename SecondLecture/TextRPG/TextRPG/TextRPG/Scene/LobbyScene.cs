@@ -12,7 +12,7 @@
         public override void Load()
         {
             Print.PrintScreen(lobbyFormat);
-            int input = Input.InputKey(3);
+            int input = Input.InputKey(5);
 
             GameManager.Scene.OpenScene((SceneType)(1 << input + shiftCount));
         }
@@ -24,6 +24,8 @@
 1. 상태 보기
 2. 인벤토리
 3. 상점
+4. 던전입장
+5. 휴식하기
 
 ";
         #endregion

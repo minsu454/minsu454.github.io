@@ -10,7 +10,7 @@
 
             attack = 10;
             defense = 5;
-            hp = 100;
+            maxHp = curHp = 100;
 
             levelAttackPoint = 2;
             levelDefensePoint = 4;

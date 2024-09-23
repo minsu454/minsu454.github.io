@@ -37,7 +37,7 @@ namespace TextRPG
 {player.name} ({JobFactory.JobName(player.info.job)})
 공격력 : {player.info.TotalAttack.ToString("D2")} {itemAttack}
 방어력 : {player.info.TotalDefense.ToString("D2")} {itemDefense}
-체 력 : {player.info.hp}
+체 력 : {player.info.curHp}
 Gold : {player.gold} G
 
 0. 나가기

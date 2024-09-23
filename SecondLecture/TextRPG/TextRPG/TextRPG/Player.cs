@@ -29,15 +29,23 @@
 
         public void SetItemStat()
         {
+            info.itemAttack = 0;
+            info.itemDefense = 0;
+
             for (int i = 0; i < equipItemList.Count; i++)
             {
                 if (equipItemList[i] == ItemType.None)
                     continue;
 
                 BaseItem item = GameManager.Item.GetBaseItem(equipItemList[i]);
-                info.itemAttack = item.attack;
-                info.itemDefense = item.defense;
+                info.itemAttack += item.attack;
+                info.itemDefense += item.defense;
             }
+        }
+
+        public void ResetHp()
+        {
+            info.curHp = info.maxHp;
         }
     }
 }

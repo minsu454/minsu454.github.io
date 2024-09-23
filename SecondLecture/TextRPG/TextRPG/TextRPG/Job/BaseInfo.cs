@@ -18,7 +18,8 @@
 
         public int attack;              //공격력
         public int defense;             //방어력
-        public int hp;                  //체력
+        public int curHp;                  //체력
+        public int maxHp;                  //체력
 
         public int levelAttackPoint;    //성장 공격력
         public int levelDefensePoint;   //성장 방어력

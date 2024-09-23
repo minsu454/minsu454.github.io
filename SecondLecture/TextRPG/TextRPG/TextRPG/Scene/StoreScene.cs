@@ -9,6 +9,7 @@ namespace TextRPG
         {
             SeeStore();
 
+            GameManager.player!.SetItemStat();
             GameManager.Scene.CloseScene();
         }
 
@@ -20,12 +21,19 @@ namespace TextRPG
             int input = -1;
             
             StorePrintScreen();
-            input = Input.InputKey(2, true);
+            input = Input.InputKey(3, true);
 
             if (input == 0)
                 return;
 
-            SeeBuy();
+            if (input == 1)
+            {
+                SeeBuy();
+            }
+            else if (input == 2)
+            {
+                SeeSell();
+            }
         }
 
         /// <summary>
@@ -73,6 +81,50 @@ namespace TextRPG
             Print.PrintScreenAndSleep("구매를 완료되었습니다.");
         }
 
+        /// <summary>
+        /// 판매창 함수
+        /// </summary>
+        private void SeeSell()
+        {
+            int input = -1;
+            int itemLength;
+
+            while (input != 0)
+            {
+                itemLength = Enum.GetValues(typeof(ItemType)).Length;
+                Console.Clear();
+                StorePrintScreen(true);
+                input = Input.InputKey(itemLength, true);
+                SellItem((ItemType)input);
+            }
+        }
+
+        /// <summary>
+        /// 판매 해주는 함수
+        /// </summary>
+        private void SellItem(ItemType type)
+        {
+            if (type == ItemType.None)
+                return;
+
+            if (!GameManager.player!.getItemList.Contains(type))
+            {
+                Print.PrintScreenAndSleep("구매하지 않은 아이템입니다.");
+                return;
+            }
+
+            BaseItem item = GameManager.Item.GetBaseItem(type);
+            Player player = GameManager.player;
+
+            player.gold += item.gold * 85 / 100;
+            player.getItemList.Remove(type);
+
+            if (player.equipItemList[(int)GameManager.Item.GetEquipType(type) - 1] == type)
+                player.equipItemList[(int)GameManager.Item.GetEquipType(type) - 1] = ItemType.None;
+
+            Print.PrintScreenAndSleep("판매를 완료되었습니다.");
+        }
+
         #region PrintFormat
         private string storeFormat =
 @$"상점
@@ -81,6 +133,7 @@ namespace TextRPG
 ";
         private string storeChoiceFormat =
 @"1. 아이템 구매
+2. 아이템 판매
 0. 나가기
 ";
         private string buyChoiceFormat =
