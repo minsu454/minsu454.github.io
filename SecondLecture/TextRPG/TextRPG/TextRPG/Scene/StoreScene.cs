@@ -91,30 +91,25 @@ namespace TextRPG
 
             while (input != 0)
             {
-                itemLength = Enum.GetValues(typeof(ItemType)).Length;
+                itemLength = GameManager.player!.getItemList.Count;
                 Console.Clear();
-                StorePrintScreen(true);
+                StorePrintScreen(true, true);
                 input = Input.InputKey(itemLength, true);
-                SellItem((ItemType)input);
+                SellItem(input);
             }
         }
 
         /// <summary>
         /// 판매 해주는 함수
         /// </summary>
-        private void SellItem(ItemType type)
+        private void SellItem(int input)
         {
-            if (type == ItemType.None)
+            if (input == 0)
                 return;
 
-            if (!GameManager.player!.getItemList.Contains(type))
-            {
-                Print.PrintScreenAndSleep("구매하지 않은 아이템입니다.");
-                return;
-            }
-
+            Player player = GameManager.player!;
+            ItemType type = player.getItemList[input - 1];
             BaseItem item = GameManager.Item.GetBaseItem(type);
-            Player player = GameManager.player;
 
             player.gold += item.gold * 85 / 100;
             player.getItemList.Remove(type);
@@ -143,7 +138,7 @@ namespace TextRPG
         /// <summary>
         /// 메인 스크린 함수
         /// </summary>
-        private void StorePrintScreen(bool seeIndex = false)
+        private void StorePrintScreen(bool seeIndex = false, bool isSell = false)
         {
             StringBuilder sb = new StringBuilder();
             Player player = GameManager.player!;
@@ -155,19 +150,37 @@ namespace TextRPG
 
 [아이템 목록]
 ");
-            for (int i = 1; i < Enum.GetValues(typeof(ItemType)).Length; i++)
+            if (isSell)
             {
-                ItemType type = (ItemType)i;
+                
+                for (int i = 0; i < player.getItemList.Count; i++)
+                {
+                    ItemType type = player.getItemList[0];
 
-                BaseItem item = GameManager.Item.GetBaseItem(type);
-                ItemLanguage korean = item.korean;
+                    BaseItem item = GameManager.Item.GetBaseItem(type);
+                    ItemLanguage korean = item.korean;
 
-                string isHaveItem = (GameManager.player!.getItemList.Contains(type)) ? "구매완료" : $"{korean.gold}";
-                string idx = seeIndex ? $"{i}" : "";
+                    string idx = seeIndex ? $"{i + 1}" : "";
 
-                sb.AppendLine($"- {idx} {korean.name} | {korean.stats} | {korean.explanation} | {isHaveItem} G");
+                    sb.AppendLine($"- {idx} {korean.name} | {korean.stats} | {korean.explanation}");
+                }
             }
+            else
+            {
+                for (int i = 1; i < Enum.GetValues(typeof(ItemType)).Length; i++)
+                {
+                    ItemType type = (ItemType)i;
 
+                    BaseItem item = GameManager.Item.GetBaseItem(type);
+                    ItemLanguage korean = item.korean;
+
+                    string isHaveItem = (GameManager.player!.getItemList.Contains(type)) ? "구매완료" : $"{korean.gold}";
+                    string idx = seeIndex ? $"{i}" : "";
+
+                    sb.AppendLine($"- {idx} {korean.name} | {korean.stats} | {korean.explanation} | {isHaveItem} G");
+                }
+            }
+            
             sb.AppendLine();
             sb.Append(seeIndex ? buyChoiceFormat : storeChoiceFormat);
             sb.AppendLine();
