@@ -22,7 +22,7 @@
             {
                 input = int.Parse(Console.ReadLine()!);
 
-                if (input <= count && (useZero ? input >= 0 : input >= 1))
+                if (input <= (useZero ? count - 1: count))
                 {
                     break;
                 }

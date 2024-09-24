@@ -5,9 +5,9 @@
         /// <summary>
         /// Item생성자 리턴해주는 함수
         /// </summary>
-        public static BaseItem CreateItem(ItemType type)
+        public static BaseItem? CreateItem(ItemType type)
         {
-            BaseItem item;
+            BaseItem? item = null;
 
             switch (type)
             {
@@ -35,8 +35,6 @@
                 case ItemType.LegendarySword:
                     item = new LegendarySword();
                     break;
-                default:
-                    throw new ArgumentOutOfRangeException($"item is {type}");
             }
 
             return item;

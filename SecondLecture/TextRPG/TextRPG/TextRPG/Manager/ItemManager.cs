@@ -1,6 +1,4 @@
-﻿using System.Text.RegularExpressions;
-
-namespace TextRPG
+﻿namespace TextRPG
 {
     public class ItemManager
     {
@@ -11,14 +9,16 @@ namespace TextRPG
         /// </summary>
         public void Init()
         {
-            for (int i = 1; i < Enum.GetValues(typeof(ItemType)).Length; i++)
-            {
-                ItemType type = (ItemType)i;
-                BaseItem item = ItemFactory.CreateItem(type);
+            foreach(ItemType type in Enum.GetValues(typeof(ItemType)))
+            { 
+                BaseItem? item = ItemFactory.CreateItem(type);
+
+                if (item == null)
+                    continue;
 
                 ItemLanguage korean = new ItemLanguage
-                    (KoreanStringInterpolation(item.name!, 12),
-                    KoreanStringInterpolation(item.explanation!, 50),
+                    (StringExtentions.KoreanStringInterpolation(item.name!, 12),
+                    StringExtentions.KoreanStringInterpolation(item.explanation!, 50),
                     ItemFactory.ItemStat(item.attack, item.defense),
                     item.gold.ToString());
 
@@ -64,24 +64,6 @@ namespace TextRPG
             return itemDic[type];
         }
 
-        /// <summary>
-        /// 한국어 줄 정렬하는 함수
-        /// </summary>
-        private string KoreanStringInterpolation(string name, int count)
-        {
-            int length = name.Replace(" ", "").Length;
-            length += Regex.Matches(name, "").Count;
-
-            if (count < length)
-                throw new OverflowException($"string nameLength * 2 : {length}, count");
-
-            while (length != count)
-            {
-                name += " ";
-                length++;
-            }
-
-            return name;
-        }
+        
     }
 }
