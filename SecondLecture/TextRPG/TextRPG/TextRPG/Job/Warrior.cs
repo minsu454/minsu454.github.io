@@ -2,6 +2,9 @@
 {
     public class Warrior : BaseInfo
     {
+        /// <summary>
+        /// 생성 함수
+        /// </summary>
         protected override void Init()
         {
             base.Init();

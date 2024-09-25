@@ -37,14 +37,20 @@ namespace TextRPG
             Init();
         }
 
+        /// <summary>
+        /// 생성 함수
+        /// </summary>
         protected virtual void Init()
         {
             level = 1;
             itemAttack = 0;
             itemDefense = 0;
-            setLevel();
+            SetLevel();
         }
 
+        /// <summary>
+        /// 레벨업 가능한 경험치인지 체크해주는 함수
+        /// </summary>
         public bool IsLevelUp(int exp)
         {
             bool value = false;
@@ -57,13 +63,19 @@ namespace TextRPG
             return value;
         }
 
+        /// <summary>
+        /// 레벨업 함수
+        /// </summary>
         public void LevelUp()
         {
             level++;
-            setLevel();
+            SetLevel();
         }
 
-        private void setLevel()
+        /// <summary>
+        /// 레벨 세팅해주는 함수
+        /// </summary>
+        private void SetLevel()
         {
             curExp = 0;
             maxExp = 100 + ((level - 1) * 20);

@@ -111,51 +111,52 @@ namespace HomeWork5
     #endregion
 
     #region LeetCode 300
-    //internal class Program
-    //{
-    //    static public int LengthOfLIS(int[] nums)
-    //    {
-    //        int[] arr = new int[nums.Length];
-    //        arr[0] = nums[0];
+    internal class Program
+    {
+        static public int LengthOfLIS(int[] nums)
+        {
+            int[] arr = new int[nums.Length];
+            arr[0] = nums[0];
 
-    //        int count = 1;
+            int count = 1;
 
-    //        for (int i = 1; i < nums.Length; i++)
-    //        {
-    //            if (arr[count - 1] < nums[i])
-    //            {
-    //                arr[count] = nums[i];
-    //                count++;
-    //            }
-    //            else
-    //            {
-    //                int left = 0, right = count;
-    //                int mid = 0;
-    //                while (left <= right)
-    //                {
-    //                    mid = (right + left) / 2;
+            for (int i = 1; i < nums.Length; i++)
+            {
+                if (arr[count - 1] < nums[i])
+                {
+                    arr[count] = nums[i];
+                    count++;
+                }
+                else
+                {
+                    int left = 0, right = count;
+                    int mid = 0;
+                    while (left <= right)
+                    {
+                        mid = (right + left) / 2;
 
-    //                    if (arr[mid] >= nums[i])
-    //                    {
-    //                        right = mid - 1;
-    //                    }
-    //                    else
-    //                    {
-    //                        left = mid + 1;
-    //                        mid++;
-    //                    }
-    //                }
-    //                arr[mid] = nums[i];
-    //            }
-    //        }
-    //        return count;
-    //    }
-    //    static void Main(string[] args)
-    //    {
-    //        int[] arr = new int[] { 0, 1, 0, 3, 2, 3 };
+                        if (arr[mid] >= nums[i])
+                        {
+                            right = mid - 1;
+                        }
+                        else
+                        {
+                            left = mid + 1;
+                            mid++;
+                        }
+                    }
+                    arr[mid] = nums[i];
+                }
+            }
+            return count;
+        }
 
-    //        Console.WriteLine(LengthOfLIS(arr));
-    //    }
-    //}
+        static void Main(string[] args)
+        {
+            int[] arr = new int[] { 0, 1, 0, 3, 2, 3 };
+
+            Console.WriteLine(LengthOfLIS(arr));
+        }
+    }
     #endregion
 }

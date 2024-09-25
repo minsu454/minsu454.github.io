@@ -12,6 +12,9 @@
 >> ";
         #endregion
 
+        /// <summary>
+        /// 입력된 범위 내에 값을 반환해주는 함수
+        /// </summary>
         public static int InputKey(int count, bool useZero = false)
         {
             Print.PrintScreen(inputFormats);

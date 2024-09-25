@@ -99,6 +99,9 @@
             return stat;
         }
 
+        /// <summary>
+        /// 아이템 분류타입 반환해주는 함수
+        /// </summary>
         public static EquipType GetEquipType(ItemType type)
         {
             switch (type)

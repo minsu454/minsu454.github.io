@@ -18,6 +18,9 @@ namespace TextRPG
             GameManager.Scene.OpenScene(SceneType.Lobby);
         }
 
+        /// <summary>
+        /// 아이디 생성 함수
+        /// </summary>
         public void CreateID()
         {
             string name = InputName();
@@ -32,6 +35,9 @@ namespace TextRPG
             GameManager.Data.UpdateData(GameManager.player.Parsing());
         }
 
+        /// <summary>
+        /// 아이디 불러오는 함수
+        /// </summary>
         public void LoadID()
         {
             LoadPrintScreen();

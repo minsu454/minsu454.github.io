@@ -2,7 +2,8 @@
 {
     public class ItemManager
     {
-        private readonly Dictionary<ItemType, Tuple<BaseItem, EquipType>> itemDic = new Dictionary<ItemType, Tuple<BaseItem, EquipType>>();//모든 아이템 저장해주는 Dictionary
+        //모든 아이템 저장해주는 Dictionary
+        private readonly Dictionary<ItemType, Tuple<BaseItem, EquipType>> itemDic = new Dictionary<ItemType, Tuple<BaseItem, EquipType>>();
 
         /// <summary>
         /// 생성 함수

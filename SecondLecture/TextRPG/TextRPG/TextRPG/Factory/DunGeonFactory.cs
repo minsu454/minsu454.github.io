@@ -2,6 +2,9 @@
 {
     public static class DunGeonFactory
     {
+        /// <summary>
+        /// 던전 만들어주는 함수
+        /// </summary>
         public static BaseDunGeon? CreateDunGeon(DunGeonType type)
         {
             BaseDunGeon? baseDunGeon = null;
@@ -21,6 +24,9 @@
             return baseDunGeon;
         }
 
+        /// <summary>
+        /// 던전 이름 반환해주는 함수
+        /// </summary>
         public static string? DungeonName(DunGeonType type)
         {
             string? name = null;

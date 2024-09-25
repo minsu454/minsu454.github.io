@@ -22,7 +22,7 @@ namespace TextRPG
             equipItemList.Add(ItemType.None);
             equipItemList.Add(ItemType.None);
 
-            gold = 10000;
+            gold = 0;
         }
 
         public Player(Table.SaveTable table)
@@ -51,6 +51,7 @@ namespace TextRPG
             }
 
             SetItemStat();
+            info.maxExp = 100 + ((info.level - 1) * 20);
         }
 
         /// <summary>

@@ -2,8 +2,12 @@
 {
     public class DunGeonManager
     {
-        private readonly Dictionary<DunGeonType, BaseDunGeon> dunGeonDic = new Dictionary<DunGeonType, BaseDunGeon> ();     //모든 씬들 저장해주는 Dictionary
+        //모든 씬들 저장해주는 Dictionary
+        private readonly Dictionary<DunGeonType, BaseDunGeon> dunGeonDic = new Dictionary<DunGeonType, BaseDunGeon> ();
 
+        /// <summary>
+        /// 생성 함수
+        /// </summary>
         public void Init()
         {
             foreach (DunGeonType type in Enum.GetValues(typeof(DunGeonType)))
@@ -18,6 +22,9 @@
             }
         }
 
+        /// <summary>
+        /// BaseDunGeon 반환해주는 함수
+        /// </summary>
         public BaseDunGeon GetDunGeon(DunGeonType type)
         {
             return dunGeonDic[type];

@@ -12,6 +12,9 @@ namespace TextRPG
         private readonly Dictionary<SceneType, BaseScene> sceneDic = new Dictionary<SceneType, BaseScene>();//모든 씬들 저장해주는 Dictionary
         private Stack<SceneType> sceneDepthStack = new Stack<SceneType>();                                  //씬들 보여주는 DepthStack
 
+        /// <summary>
+        /// 생성 함수
+        /// </summary>
         public void Init()
         {
             foreach (SceneType type in Enum.GetValues(typeof(SceneType)))

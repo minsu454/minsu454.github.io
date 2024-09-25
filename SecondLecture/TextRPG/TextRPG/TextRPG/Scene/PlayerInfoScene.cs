@@ -20,6 +20,9 @@ namespace TextRPG
 
 ";
 
+        /// <summary>
+        /// 플레이어 정보 스크린 함수
+        /// </summary>
         private void PlayerInfoPrintScreen()
         {
             StringBuilder sb = new StringBuilder();
