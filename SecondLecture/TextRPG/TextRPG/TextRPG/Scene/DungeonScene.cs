@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using System.Reflection.Emit;
 using System.Text;
 
 namespace TextRPG
@@ -18,14 +19,17 @@ namespace TextRPG
             GameManager.Scene.OpenScene(SceneType.Lobby);
         }
 
+        /// <summary>
+        /// 선택한 던전 들어가는 함수
+        /// </summary>
         public void InDungeon(DunGeonType type)
         {
-            GameManager.DunGeon.InDunGeon(type, out bool isClear, out int minusHp, out int clearGold);
+            GameManager.DunGeon.InDunGeon(type, out bool isClear, out int minusHp, out int clearGold, out int exp);
             Console.Clear();
 
             if (isClear)
             {
-                ClearPrintScreen(type, minusHp, clearGold);
+                ClearPrintScreen(type, minusHp, clearGold, exp);
             }
             else
             {
@@ -70,12 +74,19 @@ namespace TextRPG
             Print.PrintScreen(sb);
         }
 
-        private void ClearPrintScreen(DunGeonType type, int minusHp, int clearGold)
+        /// <summary>
+        /// 클리어 화면 띄워주는 함수
+        /// </summary>
+        private void ClearPrintScreen(DunGeonType type, int minusHp, int clearGold, int exp)
         {
             StringBuilder sb = new StringBuilder();
             Player player = GameManager.player!;
 
             int curhp = player.info.curHp - minusHp;
+            int curExp = player.info.curExp + exp;
+
+            bool isLevelUp = player.info.IsLevelUp(curExp);
+            if(isLevelUp) curExp -= player.info.maxExp;
 
             GameOver(curhp);
 
@@ -85,16 +96,27 @@ $@"{GameManager.DunGeon.GetDunGeon(type).name}을 클리어 하였습니다.
 
 [탐험 결과]
 체력 {player.info.curHp} -> {curhp}
-Gold {player.gold} G -> {player.gold + clearGold}");
+Gold {player.gold} G -> {player.gold + clearGold}
+{(isLevelUp ? "\nLEVELUP!!!\n" : "")}경험치 {player.info.curExp} -> {curExp} {(isLevelUp ? "+level 1 " : "")}
+");
 
             sb.AppendLine("\n0. 나가기\n");
 
             player.info.curHp = curhp;
             player.gold += clearGold;
+            player.info.curExp += exp;
+
+            if (isLevelUp)
+            {
+                player.info.LevelUp();
+            }
 
             Print.PrintScreen(sb);
         }
 
+        /// <summary>
+        /// 실패 시 화면 띄워주는 함수
+        /// </summary>
         private void FailPrintScreen(DunGeonType type, int minusHp)
         {
             StringBuilder sb = new StringBuilder();
@@ -119,6 +141,9 @@ $@"{GameManager.DunGeon.GetDunGeon(type).name}을 클리어 실패하였습니�
             Print.PrintScreen(sb);
         }
 
+        /// <summary>
+        /// 게임오버 화면 띄워주는 함수
+        /// </summary>
         private void GameOver(int curhp)
         {
             if (0 >= curhp)

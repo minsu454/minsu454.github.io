@@ -26,13 +26,17 @@
         /// <summary>
         /// 던전에서 스텟변화 받아오는 함수
         /// </summary>
-        public void InDunGeon(DunGeonType type, out bool isClear, out int minusHp, out int clearGold)
+        public void InDunGeon(DunGeonType type, out bool isClear, out int minusHp, out int clearGold, out int exp)
         {
             Player player = GameManager.player!;
             BaseDunGeon dungeon = dunGeonDic[type];
+
             Random rand = new Random();
             isClear = true;
+
+            exp = 0;
             clearGold = 0;
+
             if (player.info.TotalDefense < dungeon.recommendDefense)
             {
                 int n = rand.Next(0, 10);
@@ -51,6 +55,8 @@
 
             clearGold += dungeon.clearGold;
             clearGold += (dungeon.clearGold * rand.Next(player.info.TotalAttack, player.info.TotalAttack * 2 + 1) / 100);
+
+            exp = dungeon.clearExp;
         }
     }
 }

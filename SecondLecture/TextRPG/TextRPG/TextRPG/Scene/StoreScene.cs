@@ -91,7 +91,7 @@ namespace TextRPG
 
             while (input != 0)
             {
-                itemLength = GameManager.player!.getItemList.Count;
+                itemLength = GameManager.player!.getItemList.Count + 1;
                 Console.Clear();
                 StorePrintScreen(true, true);
                 input = Input.InputKey(itemLength, true);

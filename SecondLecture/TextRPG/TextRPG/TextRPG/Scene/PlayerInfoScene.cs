@@ -33,11 +33,12 @@ namespace TextRPG
 
             sb.Append(playerInfoFormat);
             sb.AppendLine(
-@$"Lv {player.info.level.ToString("D2")}
+@$"Lv {player.info.level}
 {player.name} ({JobFactory.JobName(player.info.job)})
-공격력 : {player.info.TotalAttack.ToString("D2")} {itemAttack}
-방어력 : {player.info.TotalDefense.ToString("D2")} {itemDefense}
+공격력 : {player.info.TotalAttack} {itemAttack}
+방어력 : {player.info.TotalDefense} {itemDefense}
 체 력 : {player.info.curHp}
+경험치 : {player.info.curExp} / {player.info.maxExp}
 Gold : {player.gold} G
 
 0. 나가기

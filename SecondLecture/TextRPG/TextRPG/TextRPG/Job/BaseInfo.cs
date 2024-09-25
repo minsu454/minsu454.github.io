@@ -1,10 +1,15 @@
-﻿namespace TextRPG
+﻿using System.Reflection.Emit;
+
+namespace TextRPG
 {
     public class BaseInfo
     {
         public JobType job;             //직업 타입
 
         public int level;               //레벨
+        public int maxExp;              //경험치 최고치
+        public int curExp;              //현재 경험치
+
 
         public int TotalAttack
         {
@@ -37,6 +42,31 @@
             level = 1;
             itemAttack = 0;
             itemDefense = 0;
+            setLevel();
+        }
+
+        public bool IsLevelUp(int exp)
+        {
+            bool value = false;
+            
+            if (exp >= maxExp)
+            {
+                value = true;
+            }
+
+            return value;
+        }
+
+        public void LevelUp()
+        {
+            level++;
+            setLevel();
+        }
+
+        private void setLevel()
+        {
+            curExp = 0;
+            maxExp = 100 + ((level - 1) * 20);
         }
     }
 }

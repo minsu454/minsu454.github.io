@@ -35,7 +35,7 @@ namespace TextRPG
         private void SeeEquip()
         {
             int input = -1;
-            int itemLength = GameManager.player!.getItemList.Count;
+            int itemLength = GameManager.player!.getItemList.Count + 1;
 
             while (true)
             {

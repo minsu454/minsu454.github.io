@@ -6,6 +6,7 @@
         {
             recommendDefense = 11;
             clearGold = 1700;
+            clearExp = 50;
         }
     }
 }
