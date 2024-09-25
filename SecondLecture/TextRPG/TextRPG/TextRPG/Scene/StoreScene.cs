@@ -155,7 +155,7 @@ namespace TextRPG
                 
                 for (int i = 0; i < player.getItemList.Count; i++)
                 {
-                    ItemType type = player.getItemList[0];
+                    ItemType type = player.getItemList[i];
 
                     BaseItem item = GameManager.Item.GetBaseItem(type);
                     ItemLanguage korean = item.korean;

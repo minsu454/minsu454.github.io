@@ -9,8 +9,8 @@ namespace TextRPG
 {
     public class SceneManager
     {
-        private Dictionary<SceneType, BaseScene> sceneDic = new Dictionary<SceneType, BaseScene>();     //모든 씬들 저장해주는 Dictionary
-        private Stack<SceneType> sceneDepthStack = new Stack<SceneType>();                              //씬들 보여주는 DepthStack
+        private readonly Dictionary<SceneType, BaseScene> sceneDic = new Dictionary<SceneType, BaseScene>();//모든 씬들 저장해주는 Dictionary
+        private Stack<SceneType> sceneDepthStack = new Stack<SceneType>();                                  //씬들 보여주는 DepthStack
 
         public void Init()
         {

@@ -2,7 +2,7 @@
 {
     public class DunGeonManager
     {
-        private Dictionary<DunGeonType, BaseDunGeon> dunGeonDic = new Dictionary<DunGeonType, BaseDunGeon> ();     //모든 씬들 저장해주는 Dictionary
+        private readonly Dictionary<DunGeonType, BaseDunGeon> dunGeonDic = new Dictionary<DunGeonType, BaseDunGeon> ();     //모든 씬들 저장해주는 Dictionary
 
         public void Init()
         {

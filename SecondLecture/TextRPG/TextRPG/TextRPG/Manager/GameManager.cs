@@ -4,9 +4,10 @@
     {
         public static bool isRun = true;
 
-        public static SceneManager Scene = new SceneManager();
-        public static ItemManager Item = new ItemManager();
-        public static DunGeonManager DunGeon = new DunGeonManager();
+        public readonly static SceneManager Scene = new SceneManager();
+        public readonly static ItemManager Item = new ItemManager();
+        public readonly static DunGeonManager DunGeon = new DunGeonManager();
+        public readonly static DataManager Data = new DataManager();
 
         public static Player? player;
 
@@ -16,6 +17,7 @@
             Scene.Init();
             Item.Init();
             DunGeon.Init();
+            Data.Init();
         }
 
         public static void Update()

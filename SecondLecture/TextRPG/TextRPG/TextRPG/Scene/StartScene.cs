@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using DataTable;
+using System.Text;
+using System.Xml.Linq;
 
 namespace TextRPG
 {
@@ -7,6 +9,16 @@ namespace TextRPG
         private int shiftCount = 0;
 
         public override void Load()
+        {
+            bool isSave = GameManager.Data.LoadData<Table.SaveTable>().name != "" ? true : false;
+
+            if (isSave) LoadID();
+            else CreateID();
+
+            GameManager.Scene.OpenScene(SceneType.Lobby);
+        }
+
+        public void CreateID()
         {
             string name = InputName();
 
@@ -17,27 +29,47 @@ namespace TextRPG
 
             GameManager.player = new Player(name, JobFactory.CreateInfo(job));
 
-            GameManager.Scene.OpenScene(SceneType.Lobby);
+            GameManager.Data.UpdateData(GameManager.player.Parsing());
+        }
+
+        public void LoadID()
+        {
+            LoadPrintScreen();
+            int input = Input.InputKey(2);
+
+            if (input == 1)
+            {
+                GameManager.player = new Player(GameManager.Data.LoadData<Table.SaveTable>());
+            }
+            else
+            {
+                Console.Clear();
+                CreateID();
+            }
         }
 
         #region PrintFormat
-        public static string startCommentFormats =
+        public static string startCommentFormat =
 @"스파르타 던전에 오신 여러분 환영합니다.
 ";
-
-        private string setNameCommentFormats =
+        private string setNameCommentFormat =
 @"원하시는 이름을 설정해주세요.
 
 ";
-
-        private string setNameChoiceCommentFormats =
+        private string setNameChoiceCommentFormat =
 @"1. 저장
 2. 취소
 
 ";
-
-        private string startSetJobCommentFormats =
+        private string startSetJobCommentFormat =
 @"원하시는 직업을 설정해주세요.
+
+";
+        private string LoadCommentFormat = 
+@"저장된 데이터가 있습니다. 불러오시겠습니까?
+
+1. 네
+2. 아니오
 
 ";
 
@@ -52,7 +84,7 @@ namespace TextRPG
             {
                 Console.Clear();
 
-                Print.PrintScreen(startCommentFormats + setNameCommentFormats);
+                Print.PrintScreen(startCommentFormat + setNameCommentFormat);
 
                 name = Console.ReadLine()!;
                 Console.WriteLine();
@@ -63,7 +95,7 @@ namespace TextRPG
                     continue;
                 }
 
-                Print.PrintScreen(setNameChoiceCommentFormats);
+                Print.PrintScreen(setNameChoiceCommentFormat);
 
                 input = Input.InputKey(2);
 
@@ -83,8 +115,8 @@ namespace TextRPG
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append(startCommentFormats);
-            sb.Append(startSetJobCommentFormats);
+            sb.Append(startCommentFormat);
+            sb.Append(startSetJobCommentFormat);
 
             for (int i = 1; i < Enum.GetValues(typeof(JobType)).Length; i++)
             {
@@ -92,6 +124,15 @@ namespace TextRPG
             }
 
             sb.AppendLine();
+
+            Print.PrintScreen(sb);
+        }
+
+        private void LoadPrintScreen()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append(startCommentFormat + LoadCommentFormat);
 
             Print.PrintScreen(sb);
         }

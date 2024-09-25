@@ -1,4 +1,8 @@
-﻿namespace TextRPG
+﻿using DataTable;
+using System.Reflection.Emit;
+using System.Xml.Linq;
+
+namespace TextRPG
 {
     public class Player
     {
@@ -21,10 +25,32 @@
             gold = 10000;
         }
 
-        public Player(int level, string name, BaseInfo info)
+        public Player(Table.SaveTable table)
         {
-            this.name = name;
-            this.info = info;
+            info = JobFactory.CreateInfo((JobType)table.jobType);
+
+            name = table.name;
+            info.level = table.level;
+            gold = table.gold;
+            info.curExp = table.exp;
+            info.curHp = table.hp;
+
+            int[] arr = Array.ConvertAll(table.getItemList.Trim().Split(" "), int.Parse);
+            if (arr[0] != 0)
+            {
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    getItemList.Add((ItemType)arr[i]);
+                }
+            }
+
+            arr = Array.ConvertAll(table.equipItemList.Trim().Split(" "), int.Parse);
+            for (int i = 0; i < arr.Length; i++)
+            {
+                equipItemList.Add((ItemType)arr[i]);
+            }
+
+            SetItemStat();
         }
 
         /// <summary>
@@ -52,6 +78,42 @@
         public void ResetHp()
         {
             info.curHp = info.maxHp;
+        }
+
+        /// <summary>
+        /// 플레이어데이터 파싱해주는 함수
+        /// </summary>
+        public Table.SaveTable Parsing()
+        {
+            var table = GameManager.Data.LoadData<Table.SaveTable>();
+
+            table.name = name;
+            table.jobType = (int)info.job;
+            table.level = info.level;
+            table.gold = gold;
+            table.exp = info.curExp;
+            table.hp = info.curHp;
+
+            string s = "";
+
+            if (getItemList.Count != 0)
+            {
+                for (int i = 0; i < getItemList.Count; i++)
+                {
+                    s += $"{(int)getItemList[i]} ";
+                }
+                table.getItemList = s;
+            }
+
+            s = "";
+
+            for (int i = 0; i < equipItemList.Count; i++)
+            {
+                s += $"{(int)equipItemList[i]} ";
+            }
+            table.equipItemList = s;
+
+            return table;
         }
     }
 }

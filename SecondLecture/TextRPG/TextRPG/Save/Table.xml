@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Table>
+  <SaveTable Id="0" Name="sr" JobType="1" Level="1" Gold="7736" Exp="70" Hp="100" getItemList="4 " equipItemList="0 4 " />
+</Table>
