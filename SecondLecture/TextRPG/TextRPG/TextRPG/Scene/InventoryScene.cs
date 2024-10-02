@@ -5,12 +5,16 @@ namespace TextRPG
 {
     public class InventoryScene : BaseScene
     {
+        /// <summary>
+        /// 로딩 함수
+        /// </summary>
         public override void Load()
         {
             Inventory();
             GameManager.player!.SetItemStat();
 
             GameManager.Scene.CloseScene();
+
         }
 
         /// <summary>
