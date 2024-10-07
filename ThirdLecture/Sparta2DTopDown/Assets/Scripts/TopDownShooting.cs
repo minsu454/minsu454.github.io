@@ -34,6 +34,7 @@ public class TopDownShooting : MonoBehaviour
 
     private void CreateProjectile()
     {
-        Instantiate(TestPrefab, projectileSpawnTr.position, Quaternion.identity);
+        GameObject prefab = Instantiate(TestPrefab, projectileSpawnTr.position, projectileSpawnTr.rotation);
+        prefab.GetComponent<Rigidbody2D>().velocity = aimDir * 5;
     }
 }
