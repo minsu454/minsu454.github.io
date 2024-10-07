@@ -22,9 +22,6 @@ public class PlayerInputController : TopDownController
         CallMoveEvent(moveInput);
     }
 
-    /// <summary>
-    /// Input System에서 Look라고 만들어줬기에 그 키를 입력하면 OnLook를 찾아온다.
-    /// </summary>
     public void OnLook(InputValue value)
     {
         Vector2 newAim = value.Get<Vector2>();
@@ -32,5 +29,10 @@ public class PlayerInputController : TopDownController
         newAim = (worldPos - (Vector2)transform.position).normalized;
 
         CallLookEvent(newAim);
+    }
+
+    public void OnFire(InputValue value)
+    {
+        IsAttacking = value.isPressed;
     }
 }
