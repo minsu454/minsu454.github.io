@@ -870,6 +870,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 569954316}
+  - component: {fileID: 569954320}
   - component: {fileID: 569954315}
   - component: {fileID: 569954314}
   - component: {fileID: 569954318}
@@ -950,7 +951,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 569954311}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2dc97c9b072e0a49896cffcfcf59369, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e5d5a80534ca2241bb9989aed719cae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &569954315
@@ -962,7 +963,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 569954311}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a694b21bc727b9499e62452a506c9f2, type: 3}
+  m_Script: {fileID: 11500000, guid: 36d7b7d8f478c0f4bacdfae8c582c3db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &569954316
@@ -1035,7 +1036,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 569954311}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee5861a962a3c3b409a85e9073fc16d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 8965d95fcb1611a46a18a46e3e4e653d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   armRenderer: {fileID: 572372573}
@@ -1050,11 +1051,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 569954311}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41d4152c9b2b7e148b35b9d429050f05, type: 3}
+  m_Script: {fileID: 11500000, guid: c61a74fe3f8012b489ab2a33840af58b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSpawnTr: {fileID: 1924490895}
   TestPrefab: {fileID: 5466655248301560923, guid: 3091f19b2ef3022469f0b4a01c1000f7, type: 3}
+--- !u!114 &569954320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569954311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46c33be86053f3e4892052a4737077d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseStat:
+    statsChangeType: 2
+    maxHealth: 15
+    speed: 5
+    attackSO: {fileID: 11400000, guid: 1a70192619af4cf48817c0098241e9ae, type: 2}
+  statModifiers: []
 --- !u!1 &572372571
 GameObject:
   m_ObjectHideFlags: 0
