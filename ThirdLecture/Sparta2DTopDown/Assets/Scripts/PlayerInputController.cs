@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// 플레이어가 키들을 입력했을 때 쓰는 class
+/// </summary>
 public class PlayerInputController : TopDownController
 {
     private Camera camera;
@@ -10,12 +13,18 @@ public class PlayerInputController : TopDownController
         camera = Camera.main;
     }
 
+    /// <summary>
+    /// Input System에서 Move라고 만들어줬기에 그 키를 입력하면 OnMove를 찾아온다.
+    /// </summary>
     public void OnMove(InputValue value)
     {
         Vector2 moveInput = value.Get<Vector2>().normalized;
         CallMoveEvent(moveInput);
     }
 
+    /// <summary>
+    /// Input System에서 Look라고 만들어줬기에 그 키를 입력하면 OnLook를 찾아온다.
+    /// </summary>
     public void OnLook(InputValue value)
     {
         Vector2 newAim = value.Get<Vector2>();

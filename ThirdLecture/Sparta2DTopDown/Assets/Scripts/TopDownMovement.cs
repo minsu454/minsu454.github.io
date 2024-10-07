@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,7 @@ public class TopDownMovement : MonoBehaviour
 {
     //실제로 이동이 일어날 컴포넌트
 
-    private TopDownController controller;
+    private TopDownController controller;       //이 캐릭터의 컨트롤러
     private Rigidbody2D movementRigidbody;
 
     private Vector2 movementDir = Vector2.zero;
@@ -19,6 +20,7 @@ public class TopDownMovement : MonoBehaviour
 
     private void Start()
     {
+        //실질적으로 Action 추가
         controller.OnMoveEvent += Move;
     }
 
