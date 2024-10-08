@@ -25,6 +25,6 @@ MonoBehaviour:
   bulletNAmeTag: Arrow
   duration: 5
   spread: 4
-  numberOfProjectilesPerShot: 5
-  multipleProjectilesAngle: 50
+  numberOfProjectilesPerShot: 1
+  multipleProjectilesAngle: 7
   projectileColor: {r: 1, g: 1, b: 1, a: 1}

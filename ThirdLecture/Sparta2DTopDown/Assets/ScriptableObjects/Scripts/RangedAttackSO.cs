@@ -4,7 +4,7 @@ using UnityEngine;
 public class RangedAttackSO : AttackSO
 {
     [Header("Ranged Attack Info")]
-    public string bulletNAmeTag;
+    public string bulletNameTag;
     public float duration;
     public float spread;
     public int numberOfProjectilesPerShot;
