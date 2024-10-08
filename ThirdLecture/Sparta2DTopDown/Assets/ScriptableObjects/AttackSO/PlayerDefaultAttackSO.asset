@@ -22,7 +22,7 @@ MonoBehaviour:
   isOnKnockBack: 1
   knockBackPower: 5
   knockBackTime: 0.1
-  bulletNAmeTag: Arrow
+  bulletNameTag: Arrow
   duration: 5
   spread: 4
   numberOfProjectilesPerShot: 1
