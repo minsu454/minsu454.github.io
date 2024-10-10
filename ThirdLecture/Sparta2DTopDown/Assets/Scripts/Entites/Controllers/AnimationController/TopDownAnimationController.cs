@@ -2,11 +2,11 @@ using System;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class CharacterAnimationController : AnimationController
+public class TopDownAnimationController : AnimationController
 {
     private static readonly int isWalking = Animator.StringToHash("isWalking");
     private static readonly int isHit = Animator.StringToHash("isHit");
-    private static readonly int attack = Animator.StringToHash("Attack");
+    private static readonly int attack = Animator.StringToHash("attack");
 
     private readonly float magnitutedThreshold = 0.5f;
 

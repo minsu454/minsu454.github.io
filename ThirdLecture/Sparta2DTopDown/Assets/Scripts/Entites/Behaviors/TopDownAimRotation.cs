@@ -31,6 +31,7 @@ public class TopDownAimRotation : MonoBehaviour
         float rotZ = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
         characterRenderer.flipX = Mathf.Abs(rotZ) > 90f;
+        armRenderer.flipY = characterRenderer.flipX;
 
         armPivot.rotation = Quaternion.Euler(0, 0, rotZ);
     }

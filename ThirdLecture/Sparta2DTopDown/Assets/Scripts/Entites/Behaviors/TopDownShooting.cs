@@ -8,17 +8,18 @@ public class TopDownShooting : MonoBehaviour
     [SerializeField]
     private Transform projectileSpawnTr;
     private Vector2 aimDir = Vector2.right;
-
+    
     private ObjectPool pool;
 
     private void Awake()
     {
         controller = GetComponent<TopDownController>();
-        pool = GameObject.FindObjectOfType<ObjectPool>();
     }
 
     private void Start()
     {
+        pool = GameManager.Instance.ObjectPool;
+
         controller.OnAttackEvent += OnShoot;
         controller.OnLookEvent += OnAim;
     }
