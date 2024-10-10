@@ -1,13 +1,16 @@
 using System;
 using UnityEngine;
 
+/// <summary>
+/// 발사체 발사하는 class
+/// </summary>
 public class TopDownShooting : MonoBehaviour
 {
     private TopDownController controller;
 
     [SerializeField]
-    private Transform projectileSpawnTr;
-    private Vector2 aimDir = Vector2.right;
+    private Transform projectileSpawnTr;        //발사체 소환 장소 변수
+    private Vector2 aimDir = Vector2.right;     //공격 방향 저장 변수
     
     private ObjectPool pool;
 
@@ -24,11 +27,17 @@ public class TopDownShooting : MonoBehaviour
         controller.OnLookEvent += OnAim;
     }
 
+    /// <summary>
+    /// Action에 바라보는 것 추가 함수
+    /// </summary>
     private void OnAim(Vector2 dir)
     {
         aimDir = dir;
     }
 
+    /// <summary>
+    /// AttackSO에 있는 값들을 발사체에 세팅해주는 함수
+    /// </summary>
     private void OnShoot(AttackSO attackSO)
     {
         RangedAttackSO rangedAttackSO = attackSO as RangedAttackSO;
@@ -51,6 +60,9 @@ public class TopDownShooting : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 발사체 스폰 함수
+    /// </summary>
     private void CreateProjectile(RangedAttackSO rangedAttackSO, float angle)
     {
         GameObject obj = pool.SpawnFromPool(rangedAttackSO.bulletNameTag);

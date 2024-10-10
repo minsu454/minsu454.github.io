@@ -1,21 +1,24 @@
 using System;
 using UnityEngine;
 
+/// <summary>
+/// 발사체컨트롤러 class
+/// </summary>
 public class ProjectileController : MonoBehaviour
 {
-    [SerializeField] private LayerMask levelCollisionLayer;
+    [SerializeField] private LayerMask levelCollisionLayer;     //벽 레이어 저장 변수
 
-    private bool isReady;
+    private bool isReady;                       //obj가 켜졌는지 안켜졌는지 저장 변수
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private TrailRenderer trailRenderer;
 
-    private RangedAttackSO attackData;
-    private float currentDuration;
-    private Vector2 direction;
+    private RangedAttackSO attackData;          //원거리 공격데이터 저장 변수
+    private float currentDuration;              //발사체 지속시간 저장 변수
+    private Vector2 direction;                  //방향 변수
 
-    private bool fxOnDestroy = true;
+    private bool fxOnDestroy = true;            //obj 사라질 때 이펙트 사용 여부 변수
 
     private void Awake()
     {
@@ -31,6 +34,7 @@ public class ProjectileController : MonoBehaviour
 
         currentDuration += Time.deltaTime;
 
+        //발사체가 켜져있는지 오래되면 삭제해주는 코드
         if (currentDuration > attackData.duration)
         {
             DestroyProjectile(transform.position, false);
@@ -65,22 +69,46 @@ public class ProjectileController : MonoBehaviour
         transform.localScale = Vector3.one * attackData.size;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        if (IsLayerMatched(levelCollisionLayer.value, collision.gameObject.layer))
+        //벽에 충돌 했을 때
+        if (IsLayerMatched(levelCollisionLayer.value, col.gameObject.layer))
         {
-            Vector2 destroyPosition = collision.ClosestPoint(transform.position) - direction * 0.2f;
+            Vector2 destroyPosition = col.ClosestPoint(transform.position) - direction * 0.2f;
             DestroyProjectile(destroyPosition, fxOnDestroy);
         }
-        else if (IsLayerMatched(attackData.target.value, collision.gameObject.layer))
+        //타겟에 충돌 했을 때
+        else if (IsLayerMatched(attackData.target.value, col.gameObject.layer))
         {
-            //TODO : 데미지 주기
-            DestroyProjectile(collision.ClosestPoint(transform.position), fxOnDestroy);
+            HealthSystem healthSystem = col.GetComponent<HealthSystem>();
+            if (healthSystem != null)
+            {
+                bool isAttackApplied = healthSystem.ChangeHealth(-attackData.power);
+
+                if (isAttackApplied && attackData.isOnKnockBack)
+                {
+                    ApplyKnockback(col);
+                }
+            }
+
+            DestroyProjectile(col.ClosestPoint(transform.position), fxOnDestroy);
         }
     }
 
     /// <summary>
-    /// 원하는 레이어인지 반환해주는 함수
+    /// 넉백 처리해주는 함수
+    /// </summary>
+    private void ApplyKnockback(Collider2D col)
+    {
+        TopDownMovement movement = col.GetComponent<TopDownMovement>();
+        if (movement != null)
+        {
+            movement.ApplyKnockback(transform, attackData.knockBackPower, attackData.knockBackTime);
+        }
+    }
+
+    /// <summary>
+    /// 레이어 동일한지 반환해주는 함수
     /// </summary>
     private bool IsLayerMatched(int value, int layer)
     {

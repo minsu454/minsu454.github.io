@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.XR.Haptics;
 
+/// <summary>
+/// 캐릭터의 스텟을 관리해주는 class
+/// </summary>
 public class CharacterStatHandler : MonoBehaviour
 {
     //기본스텟과 추가스텟들을 계산해서 최종 스텟을 계산하는 로직

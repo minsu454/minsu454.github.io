@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// 객체들 원거리 공격 데이터
+/// </summary>
 [CreateAssetMenu(fileName = "RangedAttackSO", menuName = "TopDownController/Attacks/Ranged", order = 1)]
 public class RangedAttackSO : AttackSO
 {
