@@ -1,17 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Camera main;
+
+    public void Init()
     {
-        
+        SceneManager.sceneLoaded += FindMainCamera;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void FindMainCamera(Scene scene, LoadSceneMode mode)
+    {
+        main = Camera.main;
+
+        switch (scene.name)
+        {
+
+        }
+    }
+
+    public void OnUpdate()
     {
         
     }
