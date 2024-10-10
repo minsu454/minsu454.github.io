@@ -12,6 +12,8 @@ public class TopDownMovement : MonoBehaviour
     private CharacterStatHandler characterStatsHandler;
 
     private Vector2 movementDir = Vector2.zero;
+    private Vector2 knockback = Vector2.zero;
+    private float knockbackDuration = 0f;
 
     private void Awake()
     {
@@ -29,6 +31,11 @@ public class TopDownMovement : MonoBehaviour
     private void FixedUpdate()
     {
         ApplyMovement(movementDir);
+
+        if (knockbackDuration > 0f)
+        {
+            knockbackDuration -= Time.fixedDeltaTime;
+        }
     }
 
     private void Move(Vector2 dir)
@@ -36,9 +43,21 @@ public class TopDownMovement : MonoBehaviour
         movementDir = dir;
     }
 
+    private void ApplyKnockback(Transform other, float power, float duration)
+    {
+        knockbackDuration = duration;
+        knockback = -(other.position - transform.position).normalized * power;
+    }
+
     private void ApplyMovement(Vector2 dir)
     {
         dir = dir * characterStatsHandler.CurrentStat.speed;
+
+        if (knockbackDuration > 0.0f)
+        {
+            dir += knockback;
+        }
+
         movementRigidbody.velocity = dir;
     }
 }
