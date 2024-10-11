@@ -3,12 +3,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputController : BaseController
 {
-    private Camera camera;
-
     private void Awake()
     {
-
-        camera = Camera.main;
+        Managers.Camera.SetFollowTarget(transform);
     }
 
     public void OnMove(InputValue value)
@@ -19,8 +16,7 @@ public class PlayerInputController : BaseController
 
     public void OnLook(InputValue value)
     {
-        Vector2 mousePos = camera.ScreenToWorldPoint(value.Get<Vector2>());
-        //mousePos = (mousePos - (Vector2)transform.position).normalized;
+        Vector2 mousePos = Managers.Camera.Main.ScreenToWorldPoint(value.Get<Vector2>());
 
         CallLookEvent(mousePos);
     }
