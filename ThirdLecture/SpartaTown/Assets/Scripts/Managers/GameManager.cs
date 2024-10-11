@@ -7,15 +7,8 @@ using UnityEngine;
 
 public class GameManager : SingletonBehaviour<GameManager>
 {
-    public TextMeshProUGUI timeText;
-
-    public override void Awake()
+    private void Start()
     {
-        base.Awake();
-    }
-
-    private void Update()
-    {
-        timeText.text = DateTime.Now.ToString("HH:mm");
+        Managers.Popup.CreatePopup(PopupType.LobbyMain);
     }
 }

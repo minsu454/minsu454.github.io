@@ -5,22 +5,24 @@ public class Managers : MonoBehaviour
 {
     private static Managers instance;
 
-    #region No MonoBehaviour
-    public static EventManager Event { get { return instance.eventManager; } }
-    public static SceneManagerEx Scene { get { return instance.sceneManager; } }
-    public static DataService Data { get { return instance.dataScrvice; } }
-
-    private readonly EventManager eventManager = new EventManager();
-    private readonly SceneManagerEx sceneManager = new SceneManagerEx();
-    private readonly DataService dataScrvice = new DataService();
-    #endregion
-
     #region MonoBehaviour
     public static CameraManager Camera { get { return instance.cameraManager; } }
     public static PopupManager Popup { get { return instance.popupManager; } }
 
     private CameraManager cameraManager;
     private PopupManager popupManager;
+    #endregion
+
+    #region No MonoBehaviour
+    public static EventManager Event { get { return instance.eventManager; } }
+    public static SceneManagerEx Scene { get { return instance.sceneManager; } }
+    public static DataService Data { get { return instance.dataScrvice; } }
+    public static PlayerInfoManager Job { get { return instance.playerJobManager; } }
+
+    private readonly EventManager eventManager = new EventManager();
+    private readonly SceneManagerEx sceneManager = new SceneManagerEx();
+    private readonly DataService dataScrvice = new DataService();
+    private PlayerInfoManager playerJobManager = new PlayerInfoManager();
     #endregion
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
@@ -36,6 +38,7 @@ public class Managers : MonoBehaviour
         Camera.Init();
         Popup.Init();
 
+        Job.Init();
         Data.Init();
     }
 

@@ -8,11 +8,10 @@ public class TitleManager : MonoBehaviour
     {
         BasePopup popup = Managers.Popup.CreatePopup(PopupType.SetName);
 
-        Managers.Event.Subscribe(GameEventType.PopupClose, LoadLobbyScene);
-        popup.OnCloss += () => Managers.Event.Unsubscribe(GameEventType.PopupClose, LoadLobbyScene);
+        popup.ClossEvent += LoadLobbyScene;
     }
 
-    public void LoadLobbyScene(object args)
+    public void LoadLobbyScene()
     {
         Managers.Scene.LoadScene(SceneType.Lobby);
     }

@@ -20,6 +20,7 @@ public class PopupManager : MonoBehaviour
         }
 
         Managers.Scene.OnLoadCompleted(FindMainCanvas);
+        Managers.Scene.OnLoadCompleted(ResetPopup);
     }
 
     public void FindMainCanvas(Scene scene, LoadSceneMode mode)
@@ -34,7 +35,12 @@ public class PopupManager : MonoBehaviour
         mainCanvas = mainCanvasObj.transform;
     }
 
-    public BasePopup CreatePopup(PopupType type)
+    public void ResetPopup(Scene scene, LoadSceneMode mode)
+    {
+        depth.Clear();
+    }
+
+    public BasePopup CreatePopup(PopupType type, bool active = true)
     {
         if (!popupContainerDic.TryGetValue(type, out GameObject popupGo))
         {
@@ -44,7 +50,7 @@ public class PopupManager : MonoBehaviour
 
         GameObject clone = Instantiate(popupGo, mainCanvas);
 
-        if (depth.TryPeek(out GameObject go))
+        if (depth.TryPeek(out GameObject go) && active)
         {
             go.SetActive(false);
         }
@@ -52,8 +58,6 @@ public class PopupManager : MonoBehaviour
         depth.Push(clone);
 
         BasePopup popup = clone.GetComponent<BasePopup>();
-
-        popup.Init();
 
         return popup;
     }
@@ -66,7 +70,6 @@ public class PopupManager : MonoBehaviour
         }
 
         depth.Pop();
-        Managers.Event.Dispatch(GameEventType.PopupClose, null);
 
         if (depth.TryPeek(out GameObject go))
         {

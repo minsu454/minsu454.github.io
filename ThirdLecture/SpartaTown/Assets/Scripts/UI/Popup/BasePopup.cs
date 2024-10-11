@@ -5,7 +5,12 @@ using UnityEngine;
 
 public class BasePopup : MonoBehaviour
 {
-    public Action OnCloss;
+    public Action ClossEvent;
+
+    private void OnEnable()
+    {
+        Init();
+    }
 
     public virtual void Init()
     {
@@ -16,7 +21,7 @@ public class BasePopup : MonoBehaviour
     {
         Managers.Popup.Close();
         
-        OnCloss?.Invoke();
+        ClossEvent?.Invoke();
         Destroy(gameObject);
     }
 }

@@ -21,13 +21,13 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: 945d14ec865add24abd9b3f7d5753da1, type: 3}
+      value: {fileID: 21300000, guid: 5c10b28230de10b41bd8d5946b71bae0, type: 3}
+    - time: 0.083333336
+      value: {fileID: 21300000, guid: a1aaf72141916c744b920b98584b6f14, type: 3}
     - time: 0.16666667
-      value: {fileID: 21300000, guid: 204161e9d4f565347b25abd2ff8d7515, type: 3}
-    - time: 0.33333334
-      value: {fileID: 21300000, guid: 78157b9472f9f924aa57a21d1b224171, type: 3}
-    - time: 0.5
-      value: {fileID: 21300000, guid: c9dc51c9457373e418183925813992c2, type: 3}
+      value: {fileID: 21300000, guid: 42b070a8287903c41a58036d04b4e357, type: 3}
+    - time: 0.25
+      value: {fileID: 21300000, guid: 26ad354a6dd71314aba074a3ea4375c1, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -50,21 +50,21 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 945d14ec865add24abd9b3f7d5753da1, type: 3}
-    - {fileID: 21300000, guid: 204161e9d4f565347b25abd2ff8d7515, type: 3}
-    - {fileID: 21300000, guid: 78157b9472f9f924aa57a21d1b224171, type: 3}
-    - {fileID: 21300000, guid: c9dc51c9457373e418183925813992c2, type: 3}
+    - {fileID: 21300000, guid: 5c10b28230de10b41bd8d5946b71bae0, type: 3}
+    - {fileID: 21300000, guid: a1aaf72141916c744b920b98584b6f14, type: 3}
+    - {fileID: 21300000, guid: 42b070a8287903c41a58036d04b4e357, type: 3}
+    - {fileID: 21300000, guid: 26ad354a6dd71314aba074a3ea4375c1, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5833333
+    m_StopTime: 0.33333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 0
+    m_LoopTime: 1
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
