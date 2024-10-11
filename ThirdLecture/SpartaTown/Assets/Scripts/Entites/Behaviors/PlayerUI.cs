@@ -5,7 +5,7 @@ public class PlayerUI : MonoBehaviour
 {
     private TextMeshProUGUI text;
 
-    public void Awake()
+    public void Start()
     {
         text = GetComponentInChildren<TextMeshProUGUI>();
         ShowName(Managers.Data.Name);
