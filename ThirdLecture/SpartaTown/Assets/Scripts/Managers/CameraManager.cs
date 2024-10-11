@@ -6,25 +6,41 @@ using UnityEngine.SceneManagement;
 
 public class CameraManager : MonoBehaviour
 {
-    public Camera main;
+    public Action OnLateUpdate;
+
+    public Camera Main { get; private set; }
+    private Transform target;
 
     public void Init()
     {
-        SceneManager.sceneLoaded += FindMainCamera;
+        Managers.Scene.OnLoadCompleted(FindMainCamera);
     }
 
     public void FindMainCamera(Scene scene, LoadSceneMode mode)
     {
-        main = Camera.main;
+        Main = Camera.main;
+
+        OnLateUpdate = null;
 
         switch (scene.name)
         {
-
+            case "Lobby":
+                OnLateUpdate += FollowTarget;
+                break;
         }
     }
 
-    public void OnUpdate()
+    public void SetFollowTarget(Transform target)
     {
-        
+        this.target = target;
     }
+
+    private void FollowTarget()
+    {
+        if (target == null)
+            return;
+
+        Main.transform.position = new Vector3(target.position.x, target.position.y, Main.transform.position.z);
+    }
+
 }

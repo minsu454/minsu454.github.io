@@ -4,15 +4,24 @@ using UnityEngine.SceneManagement;
 public class Managers : MonoBehaviour
 {
     private static Managers instance;
-    public static Managers Instance { get { return instance; } }
 
-    public static EventManager Event { get { return Instance.eventManager; } }
-    public static CameraManager Camera { get { return Instance.cameraManager; } }
-    public static SceneManagerEx Scene { get { return Instance.sceneManager; } }
+    #region No MonoBehaviour
+    public static EventManager Event { get { return instance.eventManager; } }
+    public static SceneManagerEx Scene { get { return instance.sceneManager; } }
+    public static DataService Data { get { return instance.dataScrvice; } }
+
+    private readonly EventManager eventManager = new EventManager();
+    private readonly SceneManagerEx sceneManager = new SceneManagerEx();
+    private readonly DataService dataScrvice = new DataService();
+    #endregion
+
+    #region MonoBehaviour
+    public static CameraManager Camera { get { return instance.cameraManager; } }
+    public static PopupManager Popup { get { return instance.popupManager; } }
 
     private CameraManager cameraManager;
-    private EventManager eventManager = new EventManager();
-    private SceneManagerEx sceneManager = new SceneManagerEx();
+    private PopupManager popupManager;
+    #endregion
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static void Init()
@@ -21,15 +30,26 @@ public class Managers : MonoBehaviour
         instance = managers.AddComponent<Managers>();
         DontDestroyOnLoad(managers);
 
-        GameObject cameraManager = new GameObject("CameraManager");
-        cameraManager.transform.parent = managers.transform;
-        instance.cameraManager = cameraManager.AddComponent<CameraManager>();
+        instance.cameraManager = instance.CreateManager<CameraManager>("CameraManager", managers.transform);
+        instance.popupManager = instance.CreateManager<PopupManager>("PopupManager", managers.transform);
 
         Camera.Init();
+        Popup.Init();
+
+        Data.Init();
     }
 
-    private void Update()
+    private void LateUpdate()
     {
-        Camera.OnUpdate();
+        Camera.OnLateUpdate?.Invoke();
+    }
+
+    private T CreateManager<T>(string name, Transform parent = null) where T : MonoBehaviour
+    {
+        GameObject manager = new GameObject(name);
+        if(parent != null)
+            manager.transform.parent = parent;
+
+        return manager.AddComponent<T>();
     }
 }

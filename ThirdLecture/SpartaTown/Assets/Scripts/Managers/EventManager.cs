@@ -39,7 +39,7 @@ public class EventManager
         if (!eventListenerDic.TryGetValue(type, out var list))
         {
             return;
-        }
+        }   
 
         foreach (var listener in list)
         {

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class SceneManagerEx
@@ -8,8 +9,6 @@ public class SceneManagerEx
     public void LoadScene(SceneType type)
     {
         SceneManager.LoadScene(GetSceneName(type));
-
-        Managers.Event.Dispatch(GameEventType.ChangeScene, null);
     }
 
     private string GetSceneName(SceneType type)
@@ -21,5 +20,10 @@ public class SceneManagerEx
         }
 
         return name;
+    }
+
+    public void OnLoadCompleted(UnityAction<Scene, LoadSceneMode> callback)
+    {
+        SceneManager.sceneLoaded += callback;
     }
 }
