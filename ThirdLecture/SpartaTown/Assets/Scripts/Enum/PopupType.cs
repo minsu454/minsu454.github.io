@@ -3,4 +3,5 @@
     SetName = 0,
     SetCharacter,
     LobbyMain,
+    PersonList,
 }

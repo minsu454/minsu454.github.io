@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class DataService
 {
-    public string Name = string.Empty;
-    public JobType job = JobType.Penguin;
+    public string Name { get; private set; } = string.Empty;
+    public JobType job { get; private set; } = JobType.Penguin;
 
     public void Init()
     {

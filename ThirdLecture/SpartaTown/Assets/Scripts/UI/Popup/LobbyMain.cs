@@ -20,4 +20,9 @@ public class LobbyMain : BasePopup
     {
         Managers.Popup.CreatePopup(PopupType.SetName, false);
     }
+
+    public void PersonList()
+    {
+        Managers.Popup.CreatePopup(PopupType.PersonList, false);
+    }
 }
