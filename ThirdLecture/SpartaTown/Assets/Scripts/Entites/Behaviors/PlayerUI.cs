@@ -19,9 +19,16 @@ public class PlayerUI : MonoBehaviour
         text.text = args.ToString();
     }
 
-    public void ShowNPCTalkPopup()
+    public void ShowNPCTalkPopup(bool active)
     {
-        if (popup != null)
+        if (!active)
+        {
+            popup?.Close();
+            popup = null;
+            return;
+        }
+
+        if (popup == null)
         {
             popup = Managers.Popup.CreatePopup(PopupType.NPCTalk, false);
         }

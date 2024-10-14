@@ -28,6 +28,7 @@ public class PlayerArea : AreaController
 
         if (hits.Length == 0)
         {
+            playerUI.ShowNPCTalkPopup(false);
             targetTr = null;
             return;
         }
@@ -51,10 +52,9 @@ public class PlayerArea : AreaController
 
         targetTr = hitTr;
 
-        //Managers.Event.Dispatch();
-
-        playerUI.ShowNPCTalkPopup();
-        //Debug.Log(hitTr.gameObject.name);
+        playerUI.ShowNPCTalkPopup(true);
+        Managers.Event.Dispatch(GameEventType.TargetChange, targetTr.GetComponent<InfoHandler>());
+        
     }
 
     public void NPCListAera()
