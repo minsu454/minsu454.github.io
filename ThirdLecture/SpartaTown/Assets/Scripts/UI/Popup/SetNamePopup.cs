@@ -11,7 +11,7 @@ public class SetNamePopup : BasePopup
     {
         inputName = GetComponentInChildren<TMP_InputField>();
 
-        characterImage.sprite = Managers.Job.GetSprite(Managers.Data.job);
+        characterImage.sprite = Managers.Job.GetSprite(Managers.Data.Job);
     }
 
     public void ChoiceCharacterPopup()

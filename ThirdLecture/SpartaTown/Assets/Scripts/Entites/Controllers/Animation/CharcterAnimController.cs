@@ -9,7 +9,7 @@ public class CharcterAnimController : AnimController
     {
         controller.MoveEvent += Move;
 
-        anim.runtimeAnimatorController = Managers.Job.GetAnimator(Managers.Data.job);
+        anim.runtimeAnimatorController = Managers.Job.GetAnimator(Managers.Data.Job);
         Managers.Event.Subscribe(GameEventType.SetCharacter, ShowCharacter);
     }
 

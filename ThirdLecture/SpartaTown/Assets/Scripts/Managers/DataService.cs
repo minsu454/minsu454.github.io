@@ -1,17 +1,20 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEngine;
 
 public class DataService
 {
-    public string Name = string.Empty;
-    public JobType job = JobType.Penguin;
+    public string Name { get; private set; } = string.Empty;
+    public JobType Job { get; private set; } = JobType.Penguin;
+    public HashSet<string> InAreaEntityNames { get; private set; } = new HashSet<string>();
 
+    //public 
+    
     public void Init()
     {
         Managers.Event.Subscribe(GameEventType.SetNewName, SetName);
         Managers.Event.Subscribe(GameEventType.SetCharacter, SetCharacter);
+        Managers.Event.Subscribe(GameEventType.InAreaEntity, SaveEntitys);
     }
 
     private void SetName(object args)
@@ -21,6 +24,19 @@ public class DataService
 
     private void SetCharacter(object args)
     {
-        job = (JobType)args;
+        Job = (JobType)args;
+    }
+
+    public void SaveEntitys(object args)
+    {
+        HashSet<string> temps = args as HashSet<string>;
+
+        if (temps == null)
+        {
+            throw new NullReferenceException();
+        }
+
+        InAreaEntityNames.Clear();
+        InAreaEntityNames = temps;
     }
 }
