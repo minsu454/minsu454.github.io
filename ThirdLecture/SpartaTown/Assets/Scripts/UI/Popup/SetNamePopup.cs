@@ -2,15 +2,16 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SetNamePopup : BasePopup
+public class SetNamePopup : BaseLockPopup
 {
     [SerializeField] private Image characterImage;
     private TMP_InputField inputName;
 
     public override void Init()
     {
-        inputName = GetComponentInChildren<TMP_InputField>();
+        base.Init();
 
+        inputName = GetComponentInChildren<TMP_InputField>();
         characterImage.sprite = Managers.Job.GetSprite(Managers.Data.Job);
     }
 

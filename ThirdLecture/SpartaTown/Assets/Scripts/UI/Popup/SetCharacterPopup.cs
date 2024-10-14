@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SetCharacterPopup : BasePopup
+public class SetCharacterPopup : BaseLockPopup
 {
     public List<Image> jobImage;
 

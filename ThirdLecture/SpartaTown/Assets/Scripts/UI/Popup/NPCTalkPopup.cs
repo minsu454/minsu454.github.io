@@ -33,10 +33,12 @@ public class NPCTalkPopup : BasePopup
         talkInfo = info;
     }
 
-    public void ChangeUI(bool isTalking)
+    public void IsTalkButton(bool isTalking)
     {
         talkWindowGo.SetActive(!isTalking);
         showTalkGo.SetActive(isTalking);
+
+        Managers.Event.Dispatch(GameEventType.LockInput, !isTalking);
     }
 
     public override void Close()

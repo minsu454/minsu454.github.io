@@ -257,7 +257,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2773068450348968504}
         m_TargetAssemblyTypeName: NPCTalkPopup, Assembly-CSharp
-        m_MethodName: ChangeUI
+        m_MethodName: IsTalkButton
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -903,7 +903,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2773068450348968504}
         m_TargetAssemblyTypeName: NPCTalkPopup, Assembly-CSharp
-        m_MethodName: ChangeUI
+        m_MethodName: IsTalkButton
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
