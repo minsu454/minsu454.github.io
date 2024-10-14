@@ -3,5 +3,6 @@
     SetName = 0,
     SetCharacter,
     LobbyMain,
-    PersonList,
+    EntityList,
+    NPCTalk,
 }

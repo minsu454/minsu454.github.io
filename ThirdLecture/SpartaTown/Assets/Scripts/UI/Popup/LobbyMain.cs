@@ -23,6 +23,6 @@ public class LobbyMain : BasePopup
 
     public void PersonList()
     {
-        Managers.Popup.CreatePopup(PopupType.PersonList, false);
+        Managers.Popup.CreatePopup(PopupType.EntityList, false);
     }
 }

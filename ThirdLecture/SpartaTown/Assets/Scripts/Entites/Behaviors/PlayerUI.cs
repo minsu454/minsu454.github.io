@@ -5,6 +5,8 @@ public class PlayerUI : MonoBehaviour
 {
     private TextMeshProUGUI text;
 
+    private BasePopup popup;
+
     public void Start()
     {
         text = GetComponentInChildren<TextMeshProUGUI>();
@@ -15,6 +17,14 @@ public class PlayerUI : MonoBehaviour
     public void ShowName(object args)
     {
         text.text = args.ToString();
+    }
+
+    public void ShowNPCTalkPopup()
+    {
+        if (popup != null)
+        {
+            popup = Managers.Popup.CreatePopup(PopupType.NPCTalk, false);
+        }
     }
 
     public void OnDestroy()
