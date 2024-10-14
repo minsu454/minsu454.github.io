@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class PopupManager : MonoBehaviour
 {
-    private readonly Dictionary<PopupType, GameObject> popupContainerDic = new Dictionary<PopupType, GameObject>();
-    private readonly Stack<GameObject> depth = new Stack<GameObject>();
+    private readonly Dictionary<PopupType, GameObject> popupContainerDic = new Dictionary<PopupType, GameObject>();     //팝업 타입 별로 프리팹 저장하는 dic
+    private readonly Stack<GameObject> depth = new Stack<GameObject>();                                                 //팝업 뎁스
 
-    private Transform mainCanvas;
+    private Transform mainCanvas;   //Scene마다 있는 mainCanvas저장 변수
 
     public void Init()
     {
@@ -23,6 +23,9 @@ public class PopupManager : MonoBehaviour
         Managers.Scene.OnLoadCompleted(ResetPopup);
     }
 
+    /// <summary>
+    /// MainCanvas 찾아주는 함수
+    /// </summary>
     public void FindMainCanvas(Scene scene, LoadSceneMode mode)
     {
         GameObject mainCanvasObj = GameObject.Find("MainCanvas");
@@ -35,11 +38,20 @@ public class PopupManager : MonoBehaviour
         mainCanvas = mainCanvasObj.transform;
     }
 
+    /// <summary>
+    /// 팝업 전부 지우는 함수
+    /// </summary>
     public void ResetPopup(Scene scene, LoadSceneMode mode)
     {
-        depth.Clear();
+        while (depth.Count != 0)
+        {
+            Close();
+        }
     }
 
+    /// <summary>
+    /// 팝업 생성 함수
+    /// </summary>
     public BasePopup CreatePopup(PopupType type, bool active = true)
     {
         if (!popupContainerDic.TryGetValue(type, out GameObject popupGo))
@@ -62,6 +74,9 @@ public class PopupManager : MonoBehaviour
         return popup;
     }
 
+    /// <summary>
+    /// 팝업 닫는 함수
+    /// </summary>
     public void Close()
     {
         if (depth.Count == 0)
@@ -69,7 +84,7 @@ public class PopupManager : MonoBehaviour
             return;
         }
 
-        depth.Pop();
+        Destroy(depth.Pop());
 
         if (depth.TryPeek(out GameObject go))
         {
