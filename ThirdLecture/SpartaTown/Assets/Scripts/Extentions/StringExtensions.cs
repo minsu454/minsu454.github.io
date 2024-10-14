@@ -1,10 +1,15 @@
-using System;
+ï»¿using System;
 
 namespace Common.StringEx
 {
+    /// <summary>
+    /// string í™•ì¥
+    /// </summary>
     public static class StringExtensions
     {
-        //stringÀ» enumÀ¸·Î º¯È¯
+        /// <summary>
+        /// stringì„ enumìœ¼ë¡œ ë³€í™˜ í•¨ìˆ˜
+        /// </summary>
         public static T StringToEnum<T>(this string value)
         {
             if (!Enum.IsDefined(typeof(T), value))

@@ -11,17 +11,26 @@ public class LobbyMain : BasePopup
         timeText.text = DateTime.Now.ToString("HH:mm");
     }
 
+    /// <summary>
+    /// 캐릭터 바꾸는 팝업 생성 함수
+    /// </summary>
     public void ChangeCharacter()
     {
         Managers.Popup.CreatePopup(PopupType.SetCharacter, false);
     }
 
+    /// <summary>
+    /// 이름 바꾸는 팝업 생성 함수
+    /// </summary>
     public void ChangeName()
     {
         Managers.Popup.CreatePopup(PopupType.SetName, false);
     }
 
-    public void PersonList()
+    /// <summary>
+    /// 인원리스트 팝업 생성 함수
+    /// </summary>
+    public void EntityList()
     {
         Managers.Popup.CreatePopup(PopupType.EntityList, false);
     }

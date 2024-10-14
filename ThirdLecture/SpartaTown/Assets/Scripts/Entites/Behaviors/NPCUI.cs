@@ -1,24 +1,18 @@
 ﻿using TMPro;
 using UnityEngine;
 
-public class NPCUI : MonoBehaviour
-{
-    private TextMeshProUGUI text;
-    private InfoHandler infoHandler;
+public class NPCUI : BaseUIController
+{  
+    private InfoHandler infoHandler;        //npc 기본정보
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         infoHandler = GetComponent<InfoHandler>();
-        text = GetComponentInChildren<TextMeshProUGUI>();
     }
 
     public void Start()
     {
         ShowName(infoHandler.SO.goName);
-    }
-
-    public void ShowName(object args)
-    {
-        text.text = args.ToString();
     }
 }

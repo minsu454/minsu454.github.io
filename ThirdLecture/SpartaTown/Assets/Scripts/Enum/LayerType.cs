@@ -1,4 +1,7 @@
-﻿public enum LayerType
+﻿/// <summary>
+/// 레이어 타입
+/// </summary>
+public enum LayerType
 {
     Default = 0,
     TransparentFX = 1,

@@ -20,6 +20,9 @@ public class SetCharacterPopup : BaseLockPopup
         }
     }
 
+    /// <summary>
+    /// 캐릭터 선택 함수
+    /// </summary>
     public void OnClick(string type)
     {
         Managers.Event.Dispatch(GameEventType.SetCharacter, StringExtensions.StringToEnum<JobType>(type));

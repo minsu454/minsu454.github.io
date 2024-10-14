@@ -1,24 +1,19 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
-public class PlayerUI : MonoBehaviour
+public class PlayerUI : BaseUIController
 {
-    private TextMeshProUGUI text;
-
-    private BasePopup popup;
+    private BasePopup popup;    //npc대화창 팝업 저장 변수
 
     public void Start()
     {
-        text = GetComponentInChildren<TextMeshProUGUI>();
         ShowName(Managers.Data.Name);
         Managers.Event.Subscribe(GameEventType.SetNewName, ShowName);
     }
 
-    public void ShowName(object args)
-    {
-        text.text = args.ToString();
-    }
-
+    /// <summary>
+    /// Npc팝업 켜주고 꺼주는 함수
+    /// </summary>
     public void ShowNPCTalkPopup(bool active)
     {
         if (!active)

@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class SetNamePopup : BaseLockPopup
 {
-    [SerializeField] private Image characterImage;
-    private TMP_InputField inputName;
+    [SerializeField] private Image characterImage;      //현재 캐릭터 이미지 띄워줄 변수
+    private TMP_InputField inputName;                   //현재 내 이름 띄워줄 변수
 
     public override void Init()
     {
@@ -15,6 +15,9 @@ public class SetNamePopup : BaseLockPopup
         characterImage.sprite = Managers.Job.GetSprite(Managers.Data.Job);
     }
 
+    /// <summary>
+    /// 캐릭터 선택 팝업 띄워주는 함수
+    /// </summary>
     public void ChoiceCharacterPopup()
     {
         Managers.Popup.CreatePopup(PopupType.SetCharacter);

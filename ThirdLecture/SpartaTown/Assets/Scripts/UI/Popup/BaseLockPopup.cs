@@ -1,5 +1,8 @@
-﻿using System;
+using System;
 
+/// <summary>
+/// player input잠구는 팝업
+/// </summary>
 public class BaseLockPopup : BasePopup
 {
     public override void Init()
