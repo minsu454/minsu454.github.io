@@ -7,8 +7,6 @@ public class DataService
     public string Name { get; private set; } = string.Empty;
     public JobType Job { get; private set; } = JobType.Penguin;
     public HashSet<string> InAreaEntityNames { get; private set; } = new HashSet<string>();
-
-    //public 
     
     public void Init()
     {
