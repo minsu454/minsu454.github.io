@@ -19,6 +19,7 @@ public enum ConsumableType
 public class ItemDataConsumbale
 {
     public ConsumableType type;
+    public float value;
 }
 
 [CreateAssetMenu(fileName = "Item", menuName = "New Item")]

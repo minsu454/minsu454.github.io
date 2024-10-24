@@ -36,12 +36,12 @@ public class PlayerCondition : MonoBehaviour, IDamagalbe
         }
     }
 
-    private void Heal(float amout)
+    public void Heal(float amout)
     {
         health.Add(amout);
     }
 
-    private void Eat(float amout)
+    public void Eat(float amout)
     {
         hunger.Add(amout);
     }
